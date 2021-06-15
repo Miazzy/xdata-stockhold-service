@@ -1,7 +1,7 @@
 {
-    "name": "vuechat",
+    "name": "xdata-stockhold-service",
     "version": "1.0.0",
-    "description": "OA",
+    "description": "stockhold manage system",
     "author": "qq695926920@163.com",
     "private": true,
     "scripts": {
