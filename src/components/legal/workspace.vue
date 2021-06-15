@@ -79,7 +79,7 @@
                     </div>
                   </div>
                 </a-card>
-                <div id="nav-content-process" style="">
+                <div v-if="wflows && wflows.length > 0" id="nav-content-process" style="">
                   <a-card :loading="loading" title="诉讼案件流程" :bordered="false" style="margin-top:10px;">
                     <a-tag color="blue" style="margin-bottom:10px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members">
@@ -95,7 +95,7 @@
                   </a-card>
                 </div>
                 <div id="nav-content-law" style="">
-                  <a-card :loading="loading" title="法律网站" :bordered="false" style="margin-top:10px;">
+                  <a-card :loading="loading" title="企业信息查询" :bordered="false" style="margin-top:10px;">
                     <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members" >
                       <a-row>
@@ -140,7 +140,7 @@ export default {
       userinfo: '',
       usertitle:'',
       lawyerlist:[],
-      breadcrumb:[{icon:'',text:'所有功能',path:'/legal/workspace'},{icon:'',text:'任务面板',path:'/legal/workspace'},{icon:'',text:'案件管控',path:'/legal/workspace'},{icon:'',text:'律所律师',path:'/legal/workspace'},{icon:'',text:'法院法官',path:'/legal/workspace'}],
+      breadcrumb:[{icon:'',text:'所有功能',path:'/legal/workspace'},{icon:'',text:'任务面板',path:'/legal/workspace'},{icon:'',text:'工商管理',path:'/legal/workspace'},{icon:'',text:'记录管理',path:'/legal/workspace'},{icon:'',text:'证照管理',path:'/legal/workspace'}],
     };
   },
   activated() {

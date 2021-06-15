@@ -110,7 +110,7 @@ export const reward = ($router) => {
             name: "我的知会",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/liebiao_jy.png`,
             href: "/account/myrewardlist",
-            description: '查看我的案件知会信息',
+            description: '查看我的知会信息',
             click: () => {
                 $router.push(`/legal/message?panename=myrewardlist&type=7&back=/legal/workspace`, '_blank');
             },
@@ -118,7 +118,7 @@ export const reward = ($router) => {
             name: "我的待办",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/time_00.png`,
             href: "/account/todolist",
-            description: '查看待处理的案件审批流程',
+            description: '查看待处理的审批流程',
             click: () => {
                 $router.push(`/legal/message?panename=mytodolist&type=7&back=/legal/workspace`, '_blank');
             }
@@ -126,7 +126,7 @@ export const reward = ($router) => {
             name: "我的已办",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/home_00.png`,
             href: "/account/donelist",
-            description: '查看已处理的案件审批流程',
+            description: '查看已处理的审批流程',
             click: () => {
                 $router.push(`/legal/message?panename=mydonelist&type=7&back=/legal/workspace`, '_blank');
             }
@@ -134,150 +134,126 @@ export const reward = ($router) => {
             name: "我的申请",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/hire.png`,
             href: "/account/donelist",
-            description: '查看我发起的案件审批流程',
+            description: '查看我发起的审批流程',
             click: () => {
                 $router.push(`/legal/message?panename=myapplylist&type=7&back=/legal/workspace`, '_blank');
             }
         }],
     }, {
         id: 'task-pane',
-        title: '案件管控',
+        title: '工商管理',
         display: true,
         taskflows: [{
-            name: "起诉案件发起",
+            name: "设立公司申请",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/qiandao_jy.png`,
             href: "/account/todolist",
-            description: '公司主动起诉案件发起申请',
+            description: '设立公司申请',
             click: () => {
                 $router.push(`/legal/case/legalapply?type=0&legalTname=起诉`, '_blank');
             }
         }, {
-            name: "应诉案件发起",
+            name: "录入质押申请",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/qiandaohuizong_jy.png`,
             href: "/account/donelist",
-            description: '公司应诉案件发起申请',
+            description: '录入质押申请',
             click: () => {
                 $router.push(`/legal/case/legalapply?type=1&legalTname=应诉`, '_blank');
             }
         }, {
-            name: "案件管理",
+            name: "录入资质申请",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/yanglaodaiyuzigerenzheng.png`,
             href: "/account/donelist",
-            description: '查看/管理案件列表信息',
+            description: '录入资质申请',
             click: () => {
                 $router.push(`/legal/case/legallist?type=99&&status=all&legalTname=all&stage=全部`, '_blank');
             }
         }, {
-            name: "结案记录",
+            name: "公司工商查询",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/shenpi.png`,
             href: "/account/myanalyse",
-            description: '查看已结案案件列表信息',
+            description: '公司工商及股权信息查询',
             click: () => {
                 $router.push(`/legal/course/lawsuitlist?&type=99&status=finish&legalTname=all&stage=结案闭单`, '_blank');
-            },
-        }, {
-            name: "一审管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/fenbufenxiang_jy.png`,
-            href: "/account/myrewards",
-            description: '对案件进展处于一审阶段的案件进行管理',
-            click: () => {
-                $router.push(`/legal/case/firstlist?type=99&&status=all&legalTname=all&stage=一审阶段`, '_blank');
-            },
-        }, {
-            name: "二审管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/laodongnenglijianding.png`,
-            href: "/account/myanalyse",
-            description: '对案件进展处于二审阶段的案件进行管理',
-            click: () => {
-                $router.push(`/legal/case/secondlist?type=99&&status=all&legalTname=all&stage=二审阶段`, '_blank');
-            },
-        }, {
-            name: "执行管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/paimai.png`,
-            href: "/account/myanalyse",
-            description: '对案件进展处于执行阶段的案件进行管理',
-            click: () => {
-                $router.push(`/legal/case/executelist?type=99&&status=all&legalTname=all&stage=执行阶段`, '_blank');
-            },
-        }, {
-            name: "再审管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/jungongyanshou_jy.png`,
-            href: "/account/myanalyse",
-            description: '对案件进展处于再审阶段的案件进行管理',
-            click: () => {
-                $router.push(`/legal/case/thirdlist?type=99&&status=all&legalTname=all&stage=再审阶段`, '_blank');
             },
         }],
     }, {
         id: 'common-pane',
-        title: '律所律师',
+        title: '记录管理',
         display: true,
         taskflows: [{
-            name: "律所录入",
+            name: "补贴记录管理",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xinwen_jy.png`,
             href: "/account/todolist",
-            description: '律师事务所录入申请',
+            description: '补贴记录管理',
             click: () => {
                 $router.push(`/legal/firm/firmapply?type=1&tname=律所录入&apply=new`, '_blank');
             }
         }, {
-            name: "律师录入",
+            name: "质押记录管理",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xiangmuxinxi_jy.png`,
             href: "/account/donelist",
-            description: '律师事务所下律师录入申请',
+            description: '公司质押记录管理',
             click: () => {
                 $router.push(`/legal/lawyer/lawyerapply?type=1&tname=律师录入&apply=new`, '_blank');
             }
         }, {
-            name: "律所管理",
+            name: "资质记录管理",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xiezuowendangku_jy.png`,
             href: "/account/todolist",
-            description: '律师事务所管理',
+            description: '公司资质记录管理',
             click: () => {
                 $router.push(`/legal/firm/firmlist?type=1&tname=律所管理&apply=管理`, '_blank');
             }
         }, {
-            name: "律师管理",
+            name: "知识产权管理",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/baomingfei.png`,
             href: "/account/todolist",
-            description: '律师管理',
+            description: '公司知识产权管理',
+            click: () => {
+                $router.push(`/legal/lawyer/lawyerlist?type=1&tname=律师管理&apply=管理`, '_blank');
+            }
+        }, {
+            name: "处罚记录管理",
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/baomingfei.png`,
+            href: "/account/todolist",
+            description: '处罚记录管理',
             click: () => {
                 $router.push(`/legal/lawyer/lawyerlist?type=1&tname=律师管理&apply=管理`, '_blank');
             }
         }],
     }, {
         id: 'law-pane',
-        title: '法院法官',
+        title: '证照管理',
         display: true,
         taskflows: [{
-            name: "法院录入",
+            name: "身份信息管理",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/anqiantiaojie.png`,
             href: "/account/todolist",
-            description: '法院信息录入申请',
+            description: '身份信息管理',
             click: () => {
                 $router.push(`/legal/court/courtapply?type=1&tname=法院录入&apply=new`, '_blank');
             }
         }, {
-            name: "法官录入",
+            name: "营业执照管理",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/building-type-180000-18.png`,
             href: "/account/donelist",
-            description: '法官信息录入申请',
+            description: '营业执照管理',
             click: () => {
                 $router.push(`/legal/court/judgeapply?type=1&tname=法官录入&apply=new`, '_blank');
             }
         }, {
-            name: "法院管理",
+            name: "项目证照管理",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/qiyehaozujian_jy.png`,
             href: "/account/todolist",
-            description: '法院信息数据管理',
+            description: '项目证照管理',
             click: () => {
                 $router.push(`/legal/court/courtlist?type=1&tname=法院管理&apply=管理`, '_blank');
             }
         }, {
-            name: "法官管理",
+            name: "其他证照管理",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/dushu_sn01.png`,
             href: "/account/todolist",
-            description: '法官信息数据管理',
+            description: '其他证照管理',
             click: () => {
                 $router.push(`/legal/court/judgelist?type=1&tname=法官管理&apply=管理`, '_blank');
             }
@@ -320,157 +296,37 @@ export const getRewardQuickTag = ($router) => {
 };
 
 export const getRewardWflow = ($router) => {
-    return [{
-            name: "月度流程",
-            avatar: "//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/icon-file-04.svg",
-            href: "/account/center",
-            click: () => {
-
-            }
-        },
-        {
-            name: "季度流程",
-            avatar: "//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/icon-file-04.svg",
-            href: "/account/authors/index",
-            click: () => {
-
-            }
-        },
-        {
-            name: "年度流程",
-            avatar: "//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/icon-file-04.svg",
-            href: "/blog/rank",
-            click: () => {
-
-            }
-        },
-        {
-            name: "流程报表",
-            avatar: "//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/icon-rank-01.svg",
-            href: "/blog/center",
-            click: () => {
-
-            }
-        }
-    ];
+    return [];
 }
 
 export const getLawWebsiteflow = ($router) => {
     return [{
-            name: "中国法院网",
+            name: "企查查 - 企业工商信息查询系统",
             span: 24,
-            href: "https://www.chinacourt.org/index.shtml",
-            click: () => {
-                window.open("https://www.chinacourt.org/index.shtml", '_blank');
-            }
-        },
-        {
-            name: "中国仲裁网",
-            span: 24,
-            href: "http://www.china-arbitration.com/",
-            click: () => {
-                window.open("http://www.china-arbitration.com/", '_blank');
-            }
-        },
-        {
-            name: "中国政府网",
-            span: 24,
-            href: "http://www.gov.cn/",
-            click: () => {
-                window.open("http://www.gov.cn/", '_blank');
-            }
-        },
-        {
-            name: "中国裁判文书网",
-            span: 24,
-            href: "https://wenshu.court.gov.cn/",
-            click: () => {
-                window.open('https://wenshu.court.gov.cn/', '_blank');
-            }
-        },
-        {
-            name: "人民法院公告网",
-            span: 24,
-            href: "https://rmfygg.court.gov.cn/",
-            click: () => {
-                window.open("https://rmfygg.court.gov.cn/", '_blank');
-            }
-        },
-        {
-            name: "中国庭审公开网",
-            span: 24,
-            href: "http://tingshen.court.gov.cn/",
-            click: () => {
-                window.open("http://tingshen.court.gov.cn/", '_blank');
-            }
-        },
-        {
-            name: "中国执行信息公开网",
-            span: 24,
-            href: "http://zxgk.court.gov.cn/zhzxgk/",
-            click: () => {
-                window.open("http://zxgk.court.gov.cn/zhzxgk/", '_blank');
-            }
-        },
-        {
-            name: "人民法院诉讼资产网",
-            span: 24,
-            href: "https://www.rmfysszc.gov.cn/",
-            click: () => {
-                window.open("http://tingshen.court.gov.cn/", '_blank');
-            }
-        },
-        {
-            name: "中国法院网法律文库",
-            span: 24,
-            href: "https://www.chinacourt.org/law",
-            click: () => {
-                window.open("https://www.chinacourt.org/law", '_blank');
-            }
-        },
-        {
-            name: "中国政府网-法律",
-            span: 11,
-            href: "http://www.gov.cn/ziliao/flfg/index.htm",
-            click: () => {
-                window.open("http://www.gov.cn/ziliao/flfg/index.htm", '_blank');
-            }
-        },
-        {
-            name: "法律法规库",
-            span: 10,
-            href: "http://search.chinalaw.gov.cn/search2.html",
-            click: () => {
-                window.open("http://search.chinalaw.gov.cn/search2.html", '_blank');
-            }
-        },
-        {
-            name: "企查查",
-            span: 6,
             href: "https://www.qcc.com/",
             click: () => {
                 window.open("https://www.qcc.com/", '_blank');
             }
         },
         {
-            name: "天眼查",
-            span: 6,
+            name: "天眼查 - 企业信用信息系统",
+            span: 24,
             href: "https://www.tianyancha.com/",
             click: () => {
                 window.open("https://www.tianyancha.com/", '_blank');
             }
         },
         {
-            name: "启信宝",
-            span: 6,
+            name: "启信宝 - 企业信用信息平台",
+            span: 24,
             href: "https://www.qixin.com/",
             click: () => {
                 window.open("https://www.qixin.com/", '_blank');
             }
         },
         {
-            name: "爱企查",
-            span: 6,
+            name: "爱企查 - 企业信用信息系统",
+            span: 24,
             href: "https://aiqicha.baidu.com/",
             click: () => {
                 window.open("https://aiqicha.baidu.com/", '_blank');
