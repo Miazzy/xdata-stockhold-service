@@ -246,6 +246,90 @@ const routes = [{
         "default": resolve => require(["../components/legal/home.vue"], resolve),
         "subPage": resolve => require(["../components/legal/qualification/qualificationlist.vue"], resolve)
     }
+}, {
+    path: '/legal/subsidy/subsidyapply',
+    name: "录入补贴记录申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/subsidy/subsidyapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/subsidy/subsidylist',
+    name: "补贴记录管理",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/subsidy/subsidylist.vue"], resolve)
+    }
+}, {
+    path: '/legal/pledge/pledgeapply',
+    name: "录入补贴记录申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/pledge/pledgeapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/pledge/pledgelist',
+    name: "补贴记录管理",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/pledge/pledgelist.vue"], resolve)
+    }
+}, {
+    path: '/legal/property/propertyapply',
+    name: "录入知识产权申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/property/propertyapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/property/propertylist',
+    name: "知识产权管理",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/property/propertylist.vue"], resolve)
+    }
+}, {
+    path: '/legal/punishment/punishmentapply',
+    name: "录入处罚记录申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/punishment/punishmentapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/punishment/punishmentlist',
+    name: "处罚记录管理",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/punishment/punishmentlist.vue"], resolve)
+    }
+}, {
+    path: '/legal/identity/identityapply',
+    name: "录入身份记录申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/punishment/punishmentapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/identity/identitylist',
+    name: "身份记录管理",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/identity/identitylist.vue"], resolve)
+    }
+}, {
+    path: '/legal/license/licenseapply',
+    name: "录入证照信息申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/license/licenseapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/license/licenselist',
+    name: "证照信息管理",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/license/licenselist.vue"], resolve)
+    }
 }];
 
 // 设置路由信息
