@@ -456,7 +456,7 @@
                       <a-textarea
                         v-model="legal.disclosure"
                         @blur="validFieldToast('disclosure')"
-                        placeholder="请输入本诉讼案件中的重大事项披露！"
+                        placeholder="请输入本股权管理中的重大事项披露！"
                         :auto-size="{ minRows: 1, maxRows: 5 }"
                         style="height:80px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"
                       />

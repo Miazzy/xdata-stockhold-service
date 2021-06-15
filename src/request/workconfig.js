@@ -68,7 +68,7 @@ export const compcolumns = {
 }
 
 /**
- * @description 物品领用管理
+ * @description 物品领用类型
  */
 export const goodstype = {
     'office': '办公用品',
@@ -80,7 +80,7 @@ export const goodstype = {
 };
 
 /**
- * @description 物品借用管理
+ * @description 物品借用类型
  */
 export const goodsborrowtype = {
     'common': '信息设备',
@@ -88,18 +88,18 @@ export const goodsborrowtype = {
 };
 
 /**
- * @description 物品借用管理
+ * @description Reward类型
  */
 export const rewardtype = {
     '0': '业绩考核奖',
     '1': '总裁专项奖',
     '2': '总经理专项奖',
     '3': '特殊贡献奖',
-    '4': '其他诉讼案件',
+    '4': '其他股权管理',
 };
 
 /**
- * @description 诉讼案件界面默认配置
+ * @description 股权管理界面默认配置
  */
 export const reward = ($router) => {
     return [{
@@ -365,7 +365,7 @@ export const courtPlainList = async(key) => {
 };
 
 /**
- * @description 诉讼案件明细默认配置
+ * @description 股权管理明细默认配置
  */
 export const columns = {
     reward: {
@@ -837,11 +837,11 @@ export const compValidation = {
             content: '请输入案件审批流程的申请事由！',
             remark: '请输入备注信息！', //备注
             amount: '请输入本次案件审批的单项奖金总额！',
-            reward_type: '请输入诉讼案件类型！',
-            reward_name: '请输入诉讼案件名称！',
-            reward_period: '请输入诉讼案件所属周期！',
+            reward_type: '请输入股权管理类型！',
+            reward_name: '请输入股权管理名称！',
+            reward_period: '请输入股权管理所属周期！',
             hr_name: '请输入负责薪资管理的人力经理！',
-            files: '请上传诉讼案件明细的Excel文档！',
+            files: '请上传股权管理明细的Excel文档！',
             apply_realname: '请输入申请人姓名！',
         }
     },

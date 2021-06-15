@@ -80,7 +80,7 @@
                   </div>
                 </a-card>
                 <div v-if="wflows && wflows.length > 0" id="nav-content-process" style="">
-                  <a-card :loading="loading" title="诉讼案件流程" :bordered="false" style="margin-top:10px;">
+                  <a-card :loading="loading" title="股权管理流程" :bordered="false" style="margin-top:10px;">
                     <a-tag color="blue" style="margin-bottom:10px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members">
                       <a-row>
