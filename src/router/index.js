@@ -204,6 +204,48 @@ const routes = [{
         "default": resolve => require(["../components/legal/home.vue"], resolve),
         "subPage": resolve => require(["../components/legal/report/legalquarter.vue"], resolve)
     }
+}, {
+    path: '/legal/company/companyapply',
+    name: "设立公司申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/company/companyapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/company/companylist',
+    name: "公司工商查询",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/company/companylist.vue"], resolve)
+    }
+}, {
+    path: '/legal/pledge/pledgeapply',
+    name: "录入质押申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/pledge/pledgeapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/pledge/pledgelist',
+    name: "质押记录管理",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/pledge/pledgelist.vue"], resolve)
+    }
+}, {
+    path: '/legal/qualification/qualificationapply',
+    name: "录入资质申请",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/qualification/qualificationapply.vue"], resolve)
+    }
+}, {
+    path: '/legal/qualification/qualificationlist',
+    name: "资质记录管理",
+    components: {
+        "default": resolve => require(["../components/legal/home.vue"], resolve),
+        "subPage": resolve => require(["../components/legal/qualification/qualificationlist.vue"], resolve)
+    }
 }];
 
 // 设置路由信息
