@@ -145,52 +145,47 @@ export const reward = ($router) => {
         display: true,
         taskflows: [{
             name: "设立公司申请",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/qiandao_jy.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/renwuzhipai_jy.png`,
             href: "/account/todolist",
             description: '设立公司申请',
             click: () => {
-                $router.push(`/stock/company/companyapply?type=0&legalTname=设立公司`, '_blank');
+                $router.push(`/stock/company/companyapply?type=0&tname=设立公司`, '_blank');
             }
         }, {
             name: "录入质押申请",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/qiandaohuizong_jy.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/fenbufenxiang_jy.png`,
             href: "/account/donelist",
             description: '录入质押申请',
             click: () => {
-                $router.push(`/stock/case/legalapply?type=1&legalTname=应诉`, '_blank');
+                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
             }
         }, {
             name: "录入资质申请",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/yanglaodaiyuzigerenzheng.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/dushu_sn01.png`,
             href: "/account/donelist",
             description: '录入资质申请',
             click: () => {
-                $router.push(`/stock/case/legallist?type=99&&status=all&legalTname=all&stage=全部`, '_blank');
+                $router.push(`/stock/qualification/qualificationapply?type=1&tname=录入资质`, '_blank');
+            }
+        }, {
+            name: "上传年报申请",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xiangmuyunpan_jy.png`,
+            href: "/account/donelist",
+            description: '上传年报申请',
+            click: () => {
+                $router.push(`/stock/qualification/qualificationapply?type=1&tname=录入资质`, '_blank');
             }
         }, {
             name: "公司工商查询",
-            avatar: `//cdn.jsdelivr.net/gh/Miazzy/yunwisdom_cdn@v1.0.0/images/shenpi.png`,
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/tubiao-02.png`,
             href: "/account/myanalyse",
             description: '公司工商及股权信息查询',
             click: () => {
                 $router.push(`/stock/course/lawsuitlist?&type=99&status=finish&legalTname=all&stage=结案闭单`, '_blank');
             },
-        }],
-    }, {
-        id: 'common-pane',
-        title: '记录管理',
-        display: true,
-        taskflows: [{
-            name: "补贴记录管理",
-            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xinwen_jy.png`,
-            href: "/account/todolist",
-            description: '补贴记录管理',
-            click: () => {
-                $router.push(`/stock/firm/firmapply?type=1&tname=律所录入&apply=new`, '_blank');
-            }
         }, {
             name: "质押记录管理",
-            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xiangmuxinxi_jy.png`,
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xinxidengji_jy.png`,
             href: "/account/donelist",
             description: '公司质押记录管理',
             click: () => {
@@ -204,9 +199,54 @@ export const reward = ($router) => {
             click: () => {
                 $router.push(`/stock/firm/firmlist?type=1&tname=律所管理&apply=管理`, '_blank');
             }
+        }],
+    }, {
+        id: 'common-pane',
+        title: '记录管理',
+        display: true,
+        taskflows: [{
+            name: "录入补贴记录",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/moxingguanli_jy.png`,
+            href: "/account/donelist",
+            description: '录入补贴记录',
+            click: () => {
+                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
+            }
+        }, {
+            name: "录入知识产权",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_app_report_.png`,
+            href: "/account/donelist",
+            description: '录入知识产权',
+            click: () => {
+                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
+            }
+        }, {
+            name: "录入处罚记录",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/danganguanli.png`,
+            href: "/account/donelist",
+            description: '录入处罚记录',
+            click: () => {
+                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
+            }
+        }, {
+            name: "录入账户记录",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_app_add_.png`,
+            href: "/account/donelist",
+            description: '录入账户记录',
+            click: () => {
+                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
+            }
+        }, {
+            name: "补贴记录管理",
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/gerenyewushouli.png`,
+            href: "/account/todolist",
+            description: '补贴记录管理',
+            click: () => {
+                $router.push(`/stock/firm/firmapply?type=1&tname=律所录入&apply=new`, '_blank');
+            }
         }, {
             name: "知识产权管理",
-            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/baomingfei.png`,
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_app_project_.png`,
             href: "/account/todolist",
             description: '公司知识产权管理',
             click: () => {
@@ -214,9 +254,17 @@ export const reward = ($router) => {
             }
         }, {
             name: "处罚记录管理",
-            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/baomingfei.png`,
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/anquanjiandu_jy.png`,
             href: "/account/todolist",
             description: '处罚记录管理',
+            click: () => {
+                $router.push(`/stock/lawyer/lawyerlist?type=1&tname=律师管理&apply=管理`, '_blank');
+            }
+        }, {
+            name: "账户记录管理",
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_phone_workmate_.png`,
+            href: "/account/todolist",
+            description: '账户记录管理',
             click: () => {
                 $router.push(`/stock/lawyer/lawyerlist?type=1&tname=律师管理&apply=管理`, '_blank');
             }
@@ -226,16 +274,48 @@ export const reward = ($router) => {
         title: '证照管理',
         display: true,
         taskflows: [{
-            name: "身份信息管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/anqiantiaojie.png`,
+            name: "录入身份信息",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/tubiao-22.png`,
             href: "/account/todolist",
-            description: '身份信息管理',
+            description: '录入身份信息',
             click: () => {
                 $router.push(`/stock/court/courtapply?type=1&tname=法院录入&apply=new`, '_blank');
             }
         }, {
+            name: "录入营业执照",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/zhaopian_sn01.png`,
+            href: "/account/todolist",
+            description: '录入营业执照',
+            click: () => {
+                $router.push(`/stock/court/courtapply?type=1&tname=法院录入&apply=new`, '_blank');
+            }
+        }, {
+            name: "录入项目证照",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/toupiao.png`,
+            href: "/account/todolist",
+            description: '录入项目证照',
+            click: () => {
+                $router.push(`/stock/court/courtapply?type=1&tname=法院录入&apply=new`, '_blank');
+            }
+        }, {
+            name: "录入其他证照",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/yuyuechadang.png`,
+            href: "/account/todolist",
+            description: '录入其他证照',
+            click: () => {
+                $router.push(`/stock/court/courtapply?type=1&tname=法院录入&apply=new`, '_blank');
+            }
+        }, {
+            name: "身份信息管理",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/shujucaiji.png`,
+            href: "/account/donelist",
+            description: '身份信息管理',
+            click: () => {
+                $router.push(`/stock/court/judgeapply?type=1&tname=法官录入&apply=new`, '_blank');
+            }
+        }, {
             name: "营业执照管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/building-type-180000-18.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_phone_contact_.png`,
             href: "/account/donelist",
             description: '营业执照管理',
             click: () => {
