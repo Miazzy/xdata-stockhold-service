@@ -5,17 +5,17 @@
         <keep-alive>
           <a-col :xl="1" :lg="24" :md="24" :sm="24" :xs="24">
             <van-sidebar v-model="activeTabKey">
-              <van-sidebar-item title="消息" :to="`/legal/message`" />
-              <van-sidebar-item title="云文档" :to="`/legal/netdisk`" />
-              <van-sidebar-item title="联系人" :to="`/legal/contact`" />
-              <van-sidebar-item title="工作台" :to="`/legal/workspace`" />
-              <van-sidebar-item title="收藏" :to="`/legal/collect`" />
-              <van-sidebar-item title="设置" :to="`/legal/setup`" />
+              <van-sidebar-item title="消息" :to="`/stock/message`" />
+              <van-sidebar-item title="云文档" :to="`/stock/netdisk`" />
+              <van-sidebar-item title="联系人" :to="`/stock/contact`" />
+              <van-sidebar-item title="工作台" :to="`/stock/workspace`" />
+              <van-sidebar-item title="收藏" :to="`/stock/collect`" />
+              <van-sidebar-item title="设置" :to="`/stock/setup`" />
             </van-sidebar>
           </a-col>
         </keep-alive>
         <keep-alive>
-          <a-col :xl="5" :lg="24" :md="24" :sm="24" :xs="24">
+          <a-col :xl="6" :lg="24" :md="24" :sm="24" :xs="24">
 
             <a-card class="pane-flow-card" :style="paneflowcard">
               <div style="margin:10px 15px 10px 25px;">
@@ -27,13 +27,9 @@
                 />
               </div>
 
-              <div style="margin: 0px 1.5rem;">
-                <van-divider style="padding: auto 10px;" />
-              </div>
-
               <template v-for="item in paneflows" :style="paneflowcard">
                 <a-card-grid
-                  class="pane-flow-card-grid pane-flow-contact-grid"
+                  class="pane-flow-card-grid"
                   :key="item.href"
                   v-show="item.show"
                   @click="menuCardClick(item.id);"
@@ -42,10 +38,11 @@
                   <a-card-meta>
                     <div slot="title" class="card-title pane-flow-card-meta" @click="item.click">
                       <div class="pane-flow-card-meta-icon">
-                        <a-avatar size="middle" :src="item.avatar" style="border-radius: 4px;" />
+                        <a-avatar size="large" :src="item.avatar" />
                       </div>
-                      <div class="pane-flow-card-meta-uname">
+                      <div class="pane-flow-card-meta-title">
                         <a class="pane-flow-card-meta-tname">{{ item.name }}</a>
+                        <div class="pane-flow-card-meta-description">{{ item.description }}</div>
                       </div>
                     </div>
                   </a-card-meta>
@@ -119,7 +116,7 @@ export default {
   mixins: [window.mixin],
   data() {
     return {
-      activeTabKey: 2,
+      activeTabKey: 4,
       pageName: "联系人",
       momentNewMsg: true,
       paneflowcard: "",
@@ -134,15 +131,30 @@ export default {
   },
   activated() {
     this.init();
+    this.changeStyle();
+    this.displayFoot();
   },
   mounted() {
     this.init();
+    this.changeStyle();
+    this.displayFoot();
   },
   methods: {
     async init() {
-      this.activeTabKey = 2;
+      this.activeTabKey = 4;
       this.constpaneflows = JSON.parse(JSON.stringify(this.paneflows));
     },
+    async changeStyle(winHeight) {
+      if (window.innerHeight) {
+        winHeight = window.innerHeight;
+      } else if (document.body && document.body.clientHeight) {
+        winHeight = document.body.clientHeight;
+      }
+      this.paneflowcard = `height:${winHeight}px; overflow-y: scroll;`;
+    },
+    async displayFoot() {},
+    async userLogin() {},
+    async clearLoginInfo() {},
     async searchWordChange() {
       this.paneflows.map((item, index) => {
         if (
@@ -171,5 +183,4 @@ export default {
 <style scoped >
 @import "../../assets/css/reward.home.css";
 @import "../../assets/css/reward.message.css";
-@import "../../assets/css/reward.contact.css";
 </style>

@@ -11,10 +11,10 @@
               {{ usertitle }} 
             </span>
             <a-menu-item-group title="应用中心">
-            <a-menu-item key="setting:1" :to="`/legal/message`"  @click="redirectView('/legal/message')" >
+            <a-menu-item key="setting:1" :to="`/stock/message`"  @click="redirectView('/stock/message')" >
                 审批
             </a-menu-item>
-            <a-menu-item key="setting:2" :to="`/legal/workspace`" @click="redirectView('/legal/workspace')" >
+            <a-menu-item key="setting:2" :to="`/stock/workspace`" @click="redirectView('/stock/workspace')" >
                 工作台
             </a-menu-item>
             </a-menu-item-group>
@@ -1216,7 +1216,7 @@ export default {
       lawyerNamelist:[],
       lawyerInNamelist:[],
       processLogList:[],
-      breadcrumb:[{icon:'home',text:'首页',path:'/legal/workspace'},{icon:'user',text:'案件管控',path:'/legal/workspace'},{icon:'user',text:'案件管理',path:'/legal/case/legallist?type=99&status=all&legalTname=all'},{icon:'form',text:'案件发起',path:''}],
+      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'案件管控',path:'/stock/workspace'},{icon:'user',text:'案件管理',path:'/stock/case/legallist?type=99&status=all&legalTname=all'},{icon:'form',text:'案件发起',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','重庆区域':'重庆区域','两湖区域':'两湖区域','川北区域':'川北区域','成都区域':'成都区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
     };
@@ -1338,7 +1338,7 @@ export default {
           this.role = Betools.tools.getUrlParam('role');
           this.stage = Betools.tools.getUrlParam('stage');
           this.apply = Betools.tools.getUrlParam('apply') || 'view';
-          this.back = Betools.tools.getUrlParam('back') || '/legal/workspace'; //查询上一页
+          this.back = Betools.tools.getUrlParam('back') || '/stock/workspace'; //查询上一页
           this.legal.legalTname = (Betools.tools.getUrlParam('type') || '0') == '0' ? '起诉' : '应诉';  //查询type
           
           const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
@@ -1539,7 +1539,7 @@ export default {
 
            // 此处推送消息至第一个审批处
            try {
-              const receiveURL = encodeURIComponent(`${window.requestAPIConfig.vuechatdomain}/#/legal/case/legalview?id=${curItemID}&pid=${node.id}&tname=bs_reward_apply&panename=mytodolist&typename=wflow_todo&bpm_status=2&proponents=${firstWflowUser}`);
+              const receiveURL = encodeURIComponent(`${window.requestAPIConfig.vuechatdomain}/#/stock/case/legalview?id=${curItemID}&pid=${node.id}&tname=bs_reward_apply&panename=mytodolist&typename=wflow_todo&bpm_status=2&proponents=${firstWflowUser}`);
               await superagent.get(`${window.requestAPIConfig.restapi}/api/v1/weappms/${firstWflowUser}/亲爱的同事，${userinfo['name']||userinfo['realname']}(${userinfo["username"]})提交了案件发起申请：${data["title"]}，内容：${data['content']}，请您及时进行审批处理！?type=reward&rurl=${receiveURL}`)
                           .set('accept', 'json');
            } catch (error) {

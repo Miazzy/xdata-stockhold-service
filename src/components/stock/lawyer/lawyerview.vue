@@ -11,10 +11,10 @@
               {{ usertitle }} 
             </span>
             <a-menu-item-group title="应用中心">
-            <a-menu-item key="setting:1" :to="`/legal/message`"  @click="redirectView('/legal/message')" >
+            <a-menu-item key="setting:1" :to="`/stock/message`"  @click="redirectView('/stock/message')" >
                 审批
             </a-menu-item>
-            <a-menu-item key="setting:2" :to="`/legal/workspace`" @click="redirectView('/legal/workspace')" >
+            <a-menu-item key="setting:2" :to="`/stock/workspace`" @click="redirectView('/stock/workspace')" >
                 工作台
             </a-menu-item>
             </a-menu-item-group>
@@ -318,7 +318,7 @@ export default {
       collection: [{ }],
       userinfo: '',
       usertitle:'',
-      breadcrumb:[{icon:'home',text:'首页',path:'/legal/workspace'},{icon:'user',text:'律所管理',path:'/legal/workspace'},{icon:'form',text:'律师查看',path:''}],
+      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'律所管理',path:'/stock/workspace'},{icon:'form',text:'律师查看',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','重庆区域':'重庆区域','两湖区域':'两湖区域','川北区域':'川北区域','成都区域':'成都区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
     };
@@ -351,7 +351,7 @@ export default {
           this.iswechat = Betools.tools.isWechat(); //查询当前是否微信端
           this.iswework = Betools.tools.isWework(); //查询是否为企业微信
           this.userinfo = await this.weworkLogin(); //查询当前登录用户
-          this.back = Betools.tools.getUrlParam('back') || '/legal/workspace'; //查询上一页
+          this.back = Betools.tools.getUrlParam('back') || '/stock/workspace'; //查询上一页
           const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
           this.legal.apply_realname = userinfo.realname;
           this.legal.apply_username = userinfo.username;

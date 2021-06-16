@@ -9,10 +9,10 @@
               {{ usertitle }} 
             </span>
             <a-menu-item-group title="应用中心">
-            <a-menu-item key="setting:1" :to="`/legal/message`"  @click="redirectView('/legal/message')" >
+            <a-menu-item key="setting:1" :to="`/stock/message`"  @click="redirectView('/stock/message')" >
                 审批
             </a-menu-item>
-            <a-menu-item key="setting:2" :to="`/legal/workspace`" @click="redirectView('/legal/workspace')" >
+            <a-menu-item key="setting:2" :to="`/stock/workspace`" @click="redirectView('/stock/workspace')" >
                 工作台
             </a-menu-item>
             </a-menu-item-group>
@@ -328,7 +328,7 @@ export default {
         '再审阶段': 2,
         '结案闭单': 100,
       },
-      breadcrumb:[{icon:'home',text:'首页',path:'/legal/workspace'},{icon:'user',text:'案件管控',path:'/legal/workspace'},{icon:'form',text:'案件管理',path:''}],
+      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'案件管控',path:'/stock/workspace'},{icon:'form',text:'案件管理',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','重庆区域':'重庆区域','两湖区域':'两湖区域','川北区域':'川北区域','成都区域':'成都区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
     };
@@ -364,7 +364,7 @@ export default {
           this.iswechat = Betools.tools.isWechat(); //查询当前是否微信端
           this.iswework = Betools.tools.isWework(); //查询是否为企业微信
           this.userinfo = await this.weworkLogin(); //查询当前登录用户
-          this.back = Betools.tools.getUrlParam('back') || '/legal/workspace'; //查询上一页
+          this.back = Betools.tools.getUrlParam('back') || '/stock/workspace'; //查询上一页
           this.legal.stage = Betools.tools.getUrlParam('stage') || '全部';
           const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
           this.execSearch('view');
@@ -396,31 +396,31 @@ export default {
       // 案件发起录入申请
       async execApply(){
           const { $router } = this;
-          $router.push(`/legal/case/legalapply?type=1&tname=案件录入&apply=new&role=new`);
+          $router.push(`/stock/case/legalapply?type=1&tname=案件录入&apply=new&role=new`);
       },
 
       // 案件记录修改申请
       async execPatch(elem){
           const { $router } = this;
-          $router.push(`/legal/case/legalapply?id=${elem.id}&type=1&tname=案件修改&apply=edit&role=edit`);
+          $router.push(`/stock/case/legalapply?id=${elem.id}&type=1&tname=案件修改&apply=edit&role=edit`);
       },
 
       // 案件记录追加进展
       async execProcess(elem){
           const { $router } = this;
-          $router.push(`/legal/case/legalapply?id=${elem.id}&type=1&tname=案件进展&apply=process&role=process`);
+          $router.push(`/stock/case/legalapply?id=${elem.id}&type=1&tname=案件进展&apply=process&role=process`);
       },
 
       // 案件记录查看申请
       async execView(elem){
           const { $router } = this;
-          $router.push(`/legal/case/legalapply?id=${elem.id}&type=1&tname=案件详情&apply=view&role=view`);
+          $router.push(`/stock/case/legalapply?id=${elem.id}&type=1&tname=案件详情&apply=view&role=view`);
       },
 
       // 案件记录发起知会
       async execNotify(elem){
           const { $router } = this;
-          $router.push(`/legal/case/legalapply?id=${elem.id}&type=1&tname=案件详情&apply=view&role=notify`);
+          $router.push(`/stock/case/legalapply?id=${elem.id}&type=1&tname=案件详情&apply=view&role=notify`);
       },
 
       // 案件记录删除信息
@@ -491,7 +491,7 @@ export default {
                       (item.id == elem.id) ? item.stage = stage : null; 
                       (item.id == elem.id) ? Betools.query.cacheTableDataByID(tablename, item.id , item) : null ;
                     });
-                    $router.push(`/legal/case/legalapply?id=${elem.id}&type=1&stage=${stage}&tname=${stage}&apply=stage&role=stage`);
+                    $router.push(`/stock/case/legalapply?id=${elem.id}&type=1&stage=${stage}&tname=${stage}&apply=stage&role=stage`);
                 }
             });
       },
@@ -499,7 +499,7 @@ export default {
       // 案件评价管理
       async execEvaluate(elem , status){
         const { $router } = this;
-        $router.push(`/legal/case/legalapply?id=${elem.id}&type=1&tname=案件评价&stage=evaluate&apply=case&role=${status}`);
+        $router.push(`/stock/case/legalapply?id=${elem.id}&type=1&tname=案件评价&stage=evaluate&apply=case&role=${status}`);
       },
 
       // 案件记录导出功能

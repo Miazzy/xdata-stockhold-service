@@ -8,10 +8,10 @@
               {{ usertitle }} 
               </span>
             <a-menu-item-group title="应用中心">
-            <a-menu-item key="setting:1" :to="`/legal/message`"  @click="redirectView('/legal/message')" >
+            <a-menu-item key="setting:1" :to="`/stock/message`"  @click="redirectView('/stock/message')" >
                 审批
             </a-menu-item>
-            <a-menu-item key="setting:2" :to="`/legal/workspace`" @click="redirectView('/legal/workspace')" >
+            <a-menu-item key="setting:2" :to="`/stock/workspace`" @click="redirectView('/stock/workspace')" >
                 工作台
             </a-menu-item>
             </a-menu-item-group>
@@ -24,12 +24,12 @@
 
             <div style="position:absolute;left:0px width:80px;" >
               <van-sidebar v-model="activeTabKey">
-                <van-sidebar-item style="display:block;" title="审批" :to="`/legal/message`" />
-                <van-sidebar-item style="display:none;" title="云文档" :to="`/legal/netdisk`" />
-                <van-sidebar-item style="display:none;" title="联系人" :to="`/legal/contact`" />
-                <van-sidebar-item style="display:block;" title="工作台" :to="`/legal/workspace`" />
-                <van-sidebar-item style="display:none;" title="收藏" :to="`/legal/collect`" />
-                <van-sidebar-item style="display:none;" title="设置" :to="`/legal/setup`" />
+                <van-sidebar-item style="display:block;" title="审批" :to="`/stock/message`" />
+                <van-sidebar-item style="display:none;" title="云文档" :to="`/stock/netdisk`" />
+                <van-sidebar-item style="display:none;" title="联系人" :to="`/stock/contact`" />
+                <van-sidebar-item style="display:block;" title="工作台" :to="`/stock/workspace`" />
+                <van-sidebar-item style="display:none;" title="收藏" :to="`/stock/collect`" />
+                <van-sidebar-item style="display:none;" title="设置" :to="`/stock/setup`" />
               </van-sidebar>
             </div>
 
@@ -118,7 +118,7 @@
   </div>
 </template>
 <script>
-import header from '@/components/legal/header.vue';
+import header from '@/components/stock/header.vue';
 import * as workconfig from '@/request/workconfig';
 
 export default {
@@ -140,7 +140,7 @@ export default {
       userinfo: '',
       usertitle:'',
       lawyerlist:[],
-      breadcrumb:[{icon:'',text:'所有功能',path:'/legal/workspace'},{icon:'',text:'任务面板',path:'/legal/workspace'},{icon:'',text:'工商管理',path:'/legal/workspace'},{icon:'',text:'记录管理',path:'/legal/workspace'},{icon:'',text:'证照管理',path:'/legal/workspace'}],
+      breadcrumb:[{icon:'',text:'所有功能',path:'/stock/workspace'},{icon:'',text:'任务面板',path:'/stock/workspace'},{icon:'',text:'工商管理',path:'/stock/workspace'},{icon:'',text:'记录管理',path:'/stock/workspace'},{icon:'',text:'证照管理',path:'/stock/workspace'}],
     };
   },
   activated() {
@@ -179,7 +179,7 @@ export default {
                 if(apply == 'evaluate') {
                   const id = arr[1];
                   const username = arr[2];
-                  $router.push(`/legal/case/legalapply?id=${id}&type=1&tname=案件详情&apply=${apply}&role=notify&rem=${username}`);
+                  $router.push(`/stock/case/legalapply?id=${id}&type=1&tname=案件详情&apply=${apply}&role=notify&rem=${username}`);
                 }
               }
             } catch (error) {

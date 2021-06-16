@@ -112,7 +112,7 @@ export const reward = ($router) => {
             href: "/account/myrewardlist",
             description: '查看我的知会信息',
             click: () => {
-                $router.push(`/legal/message?panename=myrewardlist&type=7&back=/legal/workspace`, '_blank');
+                $router.push(`/stock/message?panename=myrewardlist&type=7&back=/stock/workspace`, '_blank');
             },
         }, {
             name: "我的待办",
@@ -120,7 +120,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '查看待处理的审批流程',
             click: () => {
-                $router.push(`/legal/message?panename=mytodolist&type=7&back=/legal/workspace`, '_blank');
+                $router.push(`/stock/message?panename=mytodolist&type=7&back=/stock/workspace`, '_blank');
             }
         }, {
             name: "我的已办",
@@ -128,7 +128,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '查看已处理的审批流程',
             click: () => {
-                $router.push(`/legal/message?panename=mydonelist&type=7&back=/legal/workspace`, '_blank');
+                $router.push(`/stock/message?panename=mydonelist&type=7&back=/stock/workspace`, '_blank');
             }
         }, {
             name: "我的申请",
@@ -136,7 +136,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '查看我发起的审批流程',
             click: () => {
-                $router.push(`/legal/message?panename=myapplylist&type=7&back=/legal/workspace`, '_blank');
+                $router.push(`/stock/message?panename=myapplylist&type=7&back=/stock/workspace`, '_blank');
             }
         }],
     }, {
@@ -149,7 +149,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '设立公司申请',
             click: () => {
-                $router.push(`/legal/case/legalapply?type=0&legalTname=起诉`, '_blank');
+                $router.push(`/stock/company/companyapply?type=0&legalTname=设立公司`, '_blank');
             }
         }, {
             name: "录入质押申请",
@@ -157,7 +157,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '录入质押申请',
             click: () => {
-                $router.push(`/legal/case/legalapply?type=1&legalTname=应诉`, '_blank');
+                $router.push(`/stock/case/legalapply?type=1&legalTname=应诉`, '_blank');
             }
         }, {
             name: "录入资质申请",
@@ -165,7 +165,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '录入资质申请',
             click: () => {
-                $router.push(`/legal/case/legallist?type=99&&status=all&legalTname=all&stage=全部`, '_blank');
+                $router.push(`/stock/case/legallist?type=99&&status=all&legalTname=all&stage=全部`, '_blank');
             }
         }, {
             name: "公司工商查询",
@@ -173,7 +173,7 @@ export const reward = ($router) => {
             href: "/account/myanalyse",
             description: '公司工商及股权信息查询',
             click: () => {
-                $router.push(`/legal/course/lawsuitlist?&type=99&status=finish&legalTname=all&stage=结案闭单`, '_blank');
+                $router.push(`/stock/course/lawsuitlist?&type=99&status=finish&legalTname=all&stage=结案闭单`, '_blank');
             },
         }],
     }, {
@@ -186,7 +186,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '补贴记录管理',
             click: () => {
-                $router.push(`/legal/firm/firmapply?type=1&tname=律所录入&apply=new`, '_blank');
+                $router.push(`/stock/firm/firmapply?type=1&tname=律所录入&apply=new`, '_blank');
             }
         }, {
             name: "质押记录管理",
@@ -194,7 +194,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '公司质押记录管理',
             click: () => {
-                $router.push(`/legal/lawyer/lawyerapply?type=1&tname=律师录入&apply=new`, '_blank');
+                $router.push(`/stock/lawyer/lawyerapply?type=1&tname=律师录入&apply=new`, '_blank');
             }
         }, {
             name: "资质记录管理",
@@ -202,7 +202,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '公司资质记录管理',
             click: () => {
-                $router.push(`/legal/firm/firmlist?type=1&tname=律所管理&apply=管理`, '_blank');
+                $router.push(`/stock/firm/firmlist?type=1&tname=律所管理&apply=管理`, '_blank');
             }
         }, {
             name: "知识产权管理",
@@ -210,7 +210,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '公司知识产权管理',
             click: () => {
-                $router.push(`/legal/lawyer/lawyerlist?type=1&tname=律师管理&apply=管理`, '_blank');
+                $router.push(`/stock/lawyer/lawyerlist?type=1&tname=律师管理&apply=管理`, '_blank');
             }
         }, {
             name: "处罚记录管理",
@@ -218,7 +218,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '处罚记录管理',
             click: () => {
-                $router.push(`/legal/lawyer/lawyerlist?type=1&tname=律师管理&apply=管理`, '_blank');
+                $router.push(`/stock/lawyer/lawyerlist?type=1&tname=律师管理&apply=管理`, '_blank');
             }
         }],
     }, {
@@ -231,7 +231,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '身份信息管理',
             click: () => {
-                $router.push(`/legal/court/courtapply?type=1&tname=法院录入&apply=new`, '_blank');
+                $router.push(`/stock/court/courtapply?type=1&tname=法院录入&apply=new`, '_blank');
             }
         }, {
             name: "营业执照管理",
@@ -239,7 +239,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '营业执照管理',
             click: () => {
-                $router.push(`/legal/court/judgeapply?type=1&tname=法官录入&apply=new`, '_blank');
+                $router.push(`/stock/court/judgeapply?type=1&tname=法官录入&apply=new`, '_blank');
             }
         }, {
             name: "项目证照管理",
@@ -247,7 +247,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '项目证照管理',
             click: () => {
-                $router.push(`/legal/court/courtlist?type=1&tname=法院管理&apply=管理`, '_blank');
+                $router.push(`/stock/court/courtlist?type=1&tname=法院管理&apply=管理`, '_blank');
             }
         }, {
             name: "其他证照管理",
@@ -255,7 +255,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '其他证照管理',
             click: () => {
-                $router.push(`/legal/court/judgelist?type=1&tname=法官管理&apply=管理`, '_blank');
+                $router.push(`/stock/court/judgelist?type=1&tname=法官管理&apply=管理`, '_blank');
             }
         }],
     }]

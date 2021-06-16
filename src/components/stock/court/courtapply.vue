@@ -9,10 +9,10 @@
               {{ usertitle }} 
             </span>
             <a-menu-item-group title="应用中心">
-            <a-menu-item key="setting:1" :to="`/legal/message`"  @click="redirectView('/legal/message')" >
+            <a-menu-item key="setting:1" :to="`/stock/message`"  @click="redirectView('/stock/message')" >
                 审批
             </a-menu-item>
-            <a-menu-item key="setting:2" :to="`/legal/workspace`" @click="redirectView('/legal/workspace')" >
+            <a-menu-item key="setting:2" :to="`/stock/workspace`" @click="redirectView('/stock/workspace')" >
                 工作台
             </a-menu-item>
             </a-menu-item-group>
@@ -39,7 +39,7 @@
               <div id="legal-apply-content" class="reward-apply-content" style="height:auto; background-color:#fefefe; margin-top:0px; margin-left: 2.5rem; margin-right: 2.5rem; margin-bottom: 5rem; border: 1px solid #f0f0f0; front-size: 1rem;" >
 
                 <div class="reward-apply-header" style="height:80px; width:100%; text-align:center; margin-top:20px; font-size: 1.5rem; ">
-                  法官录入申请
+                  法院录入申请
                 </div>
 
                 <div class="reward-apply-content-item reward-apply-content-title" style="padding-top:5px;">
@@ -101,7 +101,7 @@
                       <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>法官名称</span>
                     </a-col>
                     <a-col :span="8">
-                      <a-input v-model="legal.name" placeholder="请输入法官名称！" @blur="validFieldToast('name')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                      <a-input v-model="legal.judge" placeholder="请输入此法院法官名称！" @blur="validFieldToast('judge')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
                     </a-col>
                     <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
                       <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>联系电话</span>
@@ -112,10 +112,27 @@
                   </a-row>
                 </div>
 
+                <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
+                  <a-row>
+                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>法院负责人</span>
+                    </a-col>
+                    <a-col :span="8">
+                      <a-input v-model="legal.principal" :readonly="false" placeholder="请输入法院负责人！" @blur="validFieldToast('principal')" style="border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"  />
+                    </a-col>
+                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>法院地址</span>
+                    </a-col>
+                    <a-col :span="8">
+                      <a-input v-model="legal.address" :default-value="options.address" placeholder="请输入此法院地址信息！" @blur="validFieldToast('address')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                    </a-col>
+                  </a-row>
+                </div>
+
                 <div class="reward-apply-content-item reward-apply-content-title" style="padding-top:5px;">
                    <a-row style="border-top: 1px dash #f0f0f0;" >
                     <a-col class="reward-apply-content-title-text" :span="4" style="font-size:1.1rem;">
-                      法官简介
+                      法院简介
                     </a-col>
                    </a-row>
                 </div>
@@ -123,17 +140,50 @@
                 <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
                   <a-row>
                     <a-col :span="4" style="height:auto; font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>法官简介</span>
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>法院简介</span>
                     </a-col>
                     <a-col :span="20">
                       <a-textarea
                         v-model="legal.brief"
-                        placeholder="请输入此法官简介！"
+                        placeholder="请输入此法院简要介绍！"
                         :auto-size="{ minRows: 10, maxRows: 100 }"
                         style="height:120px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"
                       />
                     </a-col>
                   </a-row>
+                </div>
+
+                <div v-show="role != 'view' && isNull(id) " class="reward-apply-content-item" style="margin-top:35px;margin-bottom:5px; margin-right:10px;">
+                   <a-row style="border-top: 1px dash #f0f0f0;" >
+                    <a-col :span="8">
+                    </a-col>
+                    <a-col class="reward-apply-content-title-text" :span="4" style="">
+                      <a-button type="primary" style="width: 120px;color:c0c0c0;" @click="handleSave();"  >
+                        保存
+                      </a-button>
+                    </a-col>
+                    <a-col class="reward-apply-content-title-text" :span="4" style="">
+                      <a-button type="primary" style="width: 120px;" @click="handleApply();"  >
+                        提交
+                      </a-button>
+                    </a-col>
+                    <a-col :span="8">
+                    </a-col>
+                   </a-row>
+                </div>
+
+                <div v-show="role != 'view' && !isNull(id)  " class="reward-apply-content-item" style="margin-top:35px;margin-bottom:5px; margin-right:10px;">
+                   <a-row style="border-top: 1px dash #f0f0f0;" >
+                    <a-col :span="8">
+                    </a-col>
+                    <a-col class="reward-apply-content-title-text" :span="4" style="margin-left:100px;">
+                      <a-button type="primary" style="width: 120px;color:c0c0c0;" @click="handlePatch();"  >
+                        修改
+                      </a-button>
+                    </a-col>
+                    <a-col :span="8">
+                    </a-col>
+                   </a-row>
                 </div>
 
                 <div style="height:100px;">
@@ -155,11 +205,11 @@ export default {
     return {
       iswechat:false,
       iswework:false,
-      pageName: "法官录入",
+      pageName: "法院管理",
       momentNewMsg: true,
       activeTabKey: 3,
       acceptType:'*/*',
-      tablename:'bs_company_legal_judicative',
+      tablename:'bs_company_legal_courtsession',
       size: 0,
       options:{
         create_time:moment(dayjs().format('YYYY-MM-DD'),'YYYY-MM-DD'),
@@ -167,15 +217,18 @@ export default {
       id:'',
       legal:{
         'id': '',
-        'title': '录入法官流程申请',
+        'title': '录入法院流程申请',
         'create_time': dayjs().format('YYYY-MM-DD'),
         'create_by': '',
-        'courtName': '',
-        'name': '',
+        'court_name': '',
+        'principal': '',
+        'judge': '',
         'mobile': '',
         'address': '',
         'zone': '',
         'brief':'',
+        'pid': '',
+        'pname': '',
         'status': 'valid',
       },
       firmlist:[],
@@ -193,7 +246,7 @@ export default {
       sheets: [{ name: "Sheet1", data: [{}] }],
       userinfo: '',
       usertitle:'',
-      breadcrumb:[{icon:'home',text:'首页',path:'/legal/workspace'},{icon:'user',text:'法院法官',path:'/legal/workspace'},{icon:'form',text:'法官查看',path:''}],
+      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'法院管理',path:'/stock/workspace'},{icon:'form',text:'法院录入',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','重庆区域':'重庆区域','两湖区域':'两湖区域','川北区域':'川北区域','成都区域':'成都区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
     };
@@ -242,7 +295,7 @@ export default {
           this.iswechat = Betools.tools.isWechat(); //查询当前是否微信端
           this.iswework = Betools.tools.isWework(); //查询是否为企业微信
           this.userinfo = await this.weworkLogin(); //查询当前登录用户
-          this.back = Betools.tools.getUrlParam('back') || '/legal/workspace'; //查询上一页
+          this.back = Betools.tools.getUrlParam('back') || '/stock/workspace'; //查询上一页
           const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
           this.legal.apply_realname = userinfo.realname;
           this.legal.apply_username = userinfo.username;

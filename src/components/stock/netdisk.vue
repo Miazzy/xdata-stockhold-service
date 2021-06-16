@@ -5,12 +5,12 @@
         <keep-alive>
           <a-col :xl="1" :lg="24" :md="24" :sm="24" :xs="24">
             <van-sidebar v-model="activeTabKey">
-              <van-sidebar-item title="消息" :to="`/legal/message`" />
-              <van-sidebar-item title="云文档" :to="`/legal/netdisk`" />
-              <van-sidebar-item title="联系人" :to="`/legal/contact`" />
-              <van-sidebar-item title="工作台" :to="`/legal/workspace`" />
-              <van-sidebar-item title="收藏" :to="`/legal/collect`" />
-              <van-sidebar-item title="设置" :to="`/legal/setup`" />
+              <van-sidebar-item title="消息" :to="`/stock/message`" />
+              <van-sidebar-item title="云文档" :to="`/stock/netdisk`" />
+              <van-sidebar-item title="联系人" :to="`/stock/contact`" />
+              <van-sidebar-item title="工作台" :to="`/stock/workspace`" />
+              <van-sidebar-item title="收藏" :to="`/stock/collect`" />
+              <van-sidebar-item title="设置" :to="`/stock/setup`" />
             </van-sidebar>
           </a-col>
         </keep-alive>

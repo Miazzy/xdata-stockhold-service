@@ -9,10 +9,10 @@
               {{ usertitle }} 
             </span>
             <a-menu-item-group title="应用中心">
-            <a-menu-item key="setting:1" :to="`/legal/message`"  @click="redirectView('/legal/message')" >
+            <a-menu-item key="setting:1" :to="`/stock/message`"  @click="redirectView('/stock/message')" >
                 审批
             </a-menu-item>
-            <a-menu-item key="setting:2" :to="`/legal/workspace`" @click="redirectView('/legal/workspace')" >
+            <a-menu-item key="setting:2" :to="`/stock/workspace`" @click="redirectView('/stock/workspace')" >
                 工作台
             </a-menu-item>
             </a-menu-item-group>
@@ -128,7 +128,7 @@ export default {
         { width: '20%', title: '法院简介', dataIndex: 'brief', key: 'brief', },
       ],
       data:[],
-      breadcrumb:[{icon:'home',text:'首页',path:'/legal/workspace'},{icon:'user',text:'法院法官',path:'/legal/workspace'},{icon:'form',text:'法院管理',path:''}],
+      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'法院法官',path:'/stock/workspace'},{icon:'form',text:'法院管理',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','重庆区域':'重庆区域','两湖区域':'两湖区域','川北区域':'川北区域','成都区域':'成都区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
     };
@@ -162,7 +162,7 @@ export default {
           this.iswechat = Betools.tools.isWechat(); //查询当前是否微信端
           this.iswework = Betools.tools.isWework(); //查询是否为企业微信
           this.userinfo = await this.weworkLogin(); //查询当前登录用户
-          this.back = Betools.tools.getUrlParam('back') || '/legal/workspace'; //查询上一页
+          this.back = Betools.tools.getUrlParam('back') || '/stock/workspace'; //查询上一页
           const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
           this.data = await this.handleList(tableName , 'valid,invalid', userinfo, '' , 0 , 10000);
         } catch (error) {
@@ -185,7 +185,7 @@ export default {
       // 律所录入申请
       async execApply(){
           const { $router } = this;
-          $router.push(`/legal/court/courtapply?type=1&tname=法院录入&apply=new`);
+          $router.push(`/stock/court/courtapply?type=1&tname=法院录入&apply=new`);
       },
 
       // 律所删除申请
@@ -196,13 +196,13 @@ export default {
       // 律所修改申请
       async execPatch(elem){
           const { $router } = this;
-          $router.push(`/legal/court/courtapply?id=${elem.id}&type=1&tname=法院修改&apply=edit`);
+          $router.push(`/stock/court/courtapply?id=${elem.id}&type=1&tname=法院修改&apply=edit`);
       },
 
       // 律所查看申请
       async execView(elem){
           const { $router } = this;
-          $router.push(`/legal/court/courtview?id=${elem.id}&type=1&tname=法院详情&apply=view`);
+          $router.push(`/stock/court/courtview?id=${elem.id}&type=1&tname=法院详情&apply=view`);
       },
 
       // 律所导出功能

@@ -8,10 +8,10 @@
               {{ usertitle }} 
             </span>
             <a-menu-item-group title="应用中心">
-            <a-menu-item key="setting:1" :to="`/legal/message`"  @click="redirectView('/legal/message')" >
+            <a-menu-item key="setting:1" :to="`/stock/message`"  @click="redirectView('/stock/message')" >
                 审批
             </a-menu-item>
-            <a-menu-item key="setting:2" :to="`/legal/workspace`" @click="redirectView('/legal/workspace')" >
+            <a-menu-item key="setting:2" :to="`/stock/workspace`" @click="redirectView('/stock/workspace')" >
                 工作台
             </a-menu-item>
             </a-menu-item-group>
@@ -23,12 +23,12 @@
 
             <div style="position:absolute;left:0px width:80px;" >
               <van-sidebar v-model="activeTabKey">
-                <van-sidebar-item style="display:block;" title="审批" :to="`/legal/message`" />
-                <van-sidebar-item style="display:none;" title="云文档" :to="`/legal/netdisk`" />
-                <van-sidebar-item style="display:none;" title="联系人" :to="`/legal/contact`" />
-                <van-sidebar-item style="display:block;" title="工作台" :to="`/legal/workspace`" />
-                <van-sidebar-item style="display:none;" title="收藏" :to="`/legal/collect`" />
-                <van-sidebar-item style="display:none;" title="设置" :to="`/legal/setup`" />
+                <van-sidebar-item style="display:block;" title="审批" :to="`/stock/message`" />
+                <van-sidebar-item style="display:none;" title="云文档" :to="`/stock/netdisk`" />
+                <van-sidebar-item style="display:none;" title="联系人" :to="`/stock/contact`" />
+                <van-sidebar-item style="display:block;" title="工作台" :to="`/stock/workspace`" />
+                <van-sidebar-item style="display:none;" title="收藏" :to="`/stock/collect`" />
+                <van-sidebar-item style="display:none;" title="设置" :to="`/stock/setup`" />
               </van-sidebar>
             </div>
 
@@ -514,7 +514,7 @@ export default {
     // 跳转到详情页面
     async querylegalview(id = '', panename = '', typename = '', bpm_status = 1 , proponents = '' , pid){
       try {
-        this.$router.push(`/legal/case/legalview?id=${id}&pid=${pid}&tname=bs_reward_apply&panename=${panename}&typename=${typename}&bpm_status=${bpm_status}&proponents=${proponents}`);
+        this.$router.push(`/stock/case/legalview?id=${id}&pid=${pid}&tname=bs_reward_apply&panename=${panename}&typename=${typename}&bpm_status=${bpm_status}&proponents=${proponents}`);
       } catch (error) {
         console.log(error);
       }

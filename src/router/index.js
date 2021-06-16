@@ -7,328 +7,328 @@ Vue.use(Router);
 const routes = [{
     path: '/legal',
     name: "案件管理",
-    component: resolve => require(["../components/legal/home.vue"], resolve)
+    component: resolve => require(["../components/stock/home.vue"], resolve)
 }, {
     path: '/',
     name: "工作台",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/workspace.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/workspace.vue"], resolve)
     }
 }, {
-    path: '/legal/workspace',
+    path: '/stock/workspace',
     name: "工作台",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/workspace.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/workspace.vue"], resolve)
     }
 }, {
-    path: '/legal/case/legalapply',
+    path: '/stock/case/legalapply',
     name: "案件申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/case/legalapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/case/legalapply.vue"], resolve)
     }
 }, {
-    path: '/legal/case/legalview',
+    path: '/stock/case/legalview',
     name: "案件管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/case/legalapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/case/legalapply.vue"], resolve)
     }
 }, {
-    path: '/legal/firm/firmapply',
+    path: '/stock/firm/firmapply',
     name: "律所申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/firm/firmapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/firm/firmapply.vue"], resolve)
     }
 }, {
-    path: '/legal/lawyer/lawyerapply',
+    path: '/stock/lawyer/lawyerapply',
     name: "律师申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/lawyer/lawyerapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/lawyer/lawyerapply.vue"], resolve)
     }
 }, {
-    path: '/legal/firm/firmlist',
+    path: '/stock/firm/firmlist',
     name: "律所管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/firm/firmlist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/firm/firmlist.vue"], resolve)
     }
 }, {
-    path: '/legal/lawyer/lawyerlist',
+    path: '/stock/lawyer/lawyerlist',
     name: "律师管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/lawyer/lawyerlist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/lawyer/lawyerlist.vue"], resolve)
     }
 }, {
-    path: '/legal/firm/firmview', //lawyerview
+    path: '/stock/firm/firmview', //lawyerview
     name: "律所详情",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/firm/firmview.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/firm/firmview.vue"], resolve)
     }
 }, {
-    path: '/legal/lawyer/lawyerview', //lawyerview
+    path: '/stock/lawyer/lawyerview', //lawyerview
     name: "律师详情",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/lawyer/lawyerview.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/lawyer/lawyerview.vue"], resolve)
     }
 }, {
-    path: '/legal/case/legallist',
+    path: '/stock/case/legallist',
     name: "案件管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/case/legallist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/case/legallist.vue"], resolve)
     }
 }, {
-    path: '/legal/course/lawsuitlist',
+    path: '/stock/course/lawsuitlist',
     name: "结案记录",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/case/legallist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/case/legallist.vue"], resolve)
     }
 }, {
-    path: '/legal/case/firstlist',
+    path: '/stock/case/firstlist',
     name: "一审管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/case/legallist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/case/legallist.vue"], resolve)
     }
 }, {
-    path: '/legal/case/secondlist',
+    path: '/stock/case/secondlist',
     name: "二审管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/case/legallist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/case/legallist.vue"], resolve)
     }
 }, {
-    path: '/legal/case/executelist',
+    path: '/stock/case/executelist',
     name: "执行管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/case/legallist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/case/legallist.vue"], resolve)
     }
 }, {
-    path: '/legal/case/thirdlist',
+    path: '/stock/case/thirdlist',
     name: "再审管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/case/legallist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/case/legallist.vue"], resolve)
     }
 }, {
-    path: '/legal/court/courtapply',
+    path: '/stock/court/courtapply',
     name: "法院录入",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/court/courtapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/court/courtapply.vue"], resolve)
     }
 }, {
-    path: '/legal/court/courtlist',
+    path: '/stock/court/courtlist',
     name: "法院管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/court/courtlist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/court/courtlist.vue"], resolve)
     }
 }, {
-    path: '/legal/court/courtview',
+    path: '/stock/court/courtview',
     name: "法院查看",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/court/courtview.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/court/courtview.vue"], resolve)
     }
 }, {
-    path: '/legal/court/judgeapply',
+    path: '/stock/court/judgeapply',
     name: "法官录入",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/court/judgeapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/court/judgeapply.vue"], resolve)
     }
 }, {
-    path: '/legal/court/judgelist',
+    path: '/stock/court/judgelist',
     name: "法官管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/court/judgelist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/court/judgelist.vue"], resolve)
     }
 }, {
-    path: '/legal/court/judgeview',
+    path: '/stock/court/judgeview',
     name: "法官查看",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/court/judgeview.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/court/judgeview.vue"], resolve)
     }
 }, {
-    path: '/legal/netdisk',
+    path: '/stock/netdisk',
     name: "云文件",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/netdisk.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/netdisk.vue"], resolve)
     }
 }, {
-    path: '/legal/collect',
+    path: '/stock/collect',
     name: "案件收藏",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/collect.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/collect.vue"], resolve)
     }
 }, {
-    path: '/legal/contact',
+    path: '/stock/contact',
     name: "联系人",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/contact.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/contact.vue"], resolve)
     }
 }, {
-    path: '/legal/message',
+    path: '/stock/message',
     name: "消息",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/message.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/message.vue"], resolve)
     }
 }, {
-    path: '/legal/report/legalmonth',
+    path: '/stock/report/legalmonth',
     name: "月度报表",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/report/legalmonth.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/report/legalmonth.vue"], resolve)
     }
 }, {
-    path: '/legal/report/legalquarter',
+    path: '/stock/report/legalquarter',
     name: "季度报表",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/report/legalquarter.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/report/legalquarter.vue"], resolve)
     }
 }, {
-    path: '/legal/company/companyapply',
+    path: '/stock/company/companyapply',
     name: "设立公司申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/company/companyapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/company/companyapply.vue"], resolve)
     }
 }, {
-    path: '/legal/company/companylist',
+    path: '/stock/company/companylist',
     name: "公司工商查询",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/company/companylist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/company/companylist.vue"], resolve)
     }
 }, {
-    path: '/legal/pledge/pledgeapply',
+    path: '/stock/pledge/pledgeapply',
     name: "录入质押申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/pledge/pledgeapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/pledge/pledgeapply.vue"], resolve)
     }
 }, {
-    path: '/legal/pledge/pledgelist',
+    path: '/stock/pledge/pledgelist',
     name: "质押记录管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/pledge/pledgelist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/pledge/pledgelist.vue"], resolve)
     }
 }, {
-    path: '/legal/qualification/qualificationapply',
+    path: '/stock/qualification/qualificationapply',
     name: "录入资质申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/qualification/qualificationapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/qualification/qualificationapply.vue"], resolve)
     }
 }, {
-    path: '/legal/qualification/qualificationlist',
+    path: '/stock/qualification/qualificationlist',
     name: "资质记录管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/qualification/qualificationlist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/qualification/qualificationlist.vue"], resolve)
     }
 }, {
-    path: '/legal/subsidy/subsidyapply',
+    path: '/stock/subsidy/subsidyapply',
     name: "录入补贴记录申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/subsidy/subsidyapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/subsidy/subsidyapply.vue"], resolve)
     }
 }, {
-    path: '/legal/subsidy/subsidylist',
+    path: '/stock/subsidy/subsidylist',
     name: "补贴记录管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/subsidy/subsidylist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/subsidy/subsidylist.vue"], resolve)
     }
 }, {
-    path: '/legal/pledge/pledgeapply',
+    path: '/stock/pledge/pledgeapply',
     name: "录入补贴记录申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/pledge/pledgeapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/pledge/pledgeapply.vue"], resolve)
     }
 }, {
-    path: '/legal/pledge/pledgelist',
+    path: '/stock/pledge/pledgelist',
     name: "补贴记录管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/pledge/pledgelist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/pledge/pledgelist.vue"], resolve)
     }
 }, {
-    path: '/legal/property/propertyapply',
+    path: '/stock/property/propertyapply',
     name: "录入知识产权申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/property/propertyapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/property/propertyapply.vue"], resolve)
     }
 }, {
-    path: '/legal/property/propertylist',
+    path: '/stock/property/propertylist',
     name: "知识产权管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/property/propertylist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/property/propertylist.vue"], resolve)
     }
 }, {
-    path: '/legal/punishment/punishmentapply',
+    path: '/stock/punishment/punishmentapply',
     name: "录入处罚记录申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/punishment/punishmentapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/punishment/punishmentapply.vue"], resolve)
     }
 }, {
-    path: '/legal/punishment/punishmentlist',
+    path: '/stock/punishment/punishmentlist',
     name: "处罚记录管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/punishment/punishmentlist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/punishment/punishmentlist.vue"], resolve)
     }
 }, {
-    path: '/legal/identity/identityapply',
+    path: '/stock/identity/identityapply',
     name: "录入身份记录申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/punishment/punishmentapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/punishment/punishmentapply.vue"], resolve)
     }
 }, {
-    path: '/legal/identity/identitylist',
+    path: '/stock/identity/identitylist',
     name: "身份记录管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/identity/identitylist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/identity/identitylist.vue"], resolve)
     }
 }, {
-    path: '/legal/license/licenseapply',
+    path: '/stock/license/licenseapply',
     name: "录入证照信息申请",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/license/licenseapply.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/license/licenseapply.vue"], resolve)
     }
 }, {
-    path: '/legal/license/licenselist',
+    path: '/stock/license/licenselist',
     name: "证照信息管理",
     components: {
-        "default": resolve => require(["../components/legal/home.vue"], resolve),
-        "subPage": resolve => require(["../components/legal/license/licenselist.vue"], resolve)
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/license/licenselist.vue"], resolve)
     }
 }];
 
