@@ -108,6 +108,22 @@
                     </div>
                   </a-card>
                 </div>
+
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="注册资本榜" :bordered="false" style="margin-top:10px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in companys" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
             </div>
             
           </a-col>
@@ -136,6 +152,7 @@ export default {
       paneflows: workconfig.reward($router),
       wflows: workconfig.getRewardWflow($router),
       lawsites: workconfig.getLawWebsiteflow($router),
+      companys: workconfig.getCompanyflow($router),
       quicktags: workconfig.getRewardQuickTag($router),
       userinfo: '',
       usertitle:'',

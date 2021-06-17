@@ -379,6 +379,90 @@ export const getRewardWflow = ($router) => {
     return [];
 }
 
+export const getCompanyflow = ($router) => {
+    return [{
+        name: "领地集团有限公司 - ￥339000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "融量集团有限公司 - ￥260000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "北京当代领地置业有限公司 - ￥100000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "成都恒域房地产开发有限公司 - ￥100000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "成都汉景实业有限公司 - ￥53500(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "成都新隆置业有限公司 - ￥44000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "成都航悦企业管理有限公司 - ￥40000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "量石投资有限公司 - ￥30000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "中亚建业建设工程有限公司 - ￥30000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "仁寿领创房地产开发有限公司 - ￥28000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }]
+}
+
 export const getLawWebsiteflow = ($router) => {
     return [{
             name: "企查查 - 企业工商信息查询系统",
