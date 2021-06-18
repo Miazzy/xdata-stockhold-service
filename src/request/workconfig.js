@@ -201,7 +201,7 @@ export const reward = ($router) => {
             }
         }, {
             name: "年报记录管理",
-            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xiezuowendangku_jy.png`,
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_phone_contact_.png`,
             href: "/account/todolist",
             description: '年报记录管理',
             click: () => {
