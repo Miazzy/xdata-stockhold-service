@@ -40,69 +40,7 @@
 
                     <div class="reward-top-button" style="margin-top:20px;margin-bottom:20px; margin-left:20px;">
                         <a-input-search v-model="legal.value" placeholder="输入搜索关键字、案件名称、相关信息等" style="width:450px;" enter-button @search="execSearch('view')" />
-                        
-                        <div v-if="getUrlParam('stage') == '全部' " style="display:inline;margin-left:15px;font-size:14px;margin-right:10px;">
-                          <span>案件阶段</span>
-                          <a-select  v-model="legal.stage" default-value="一审阶段" placeholder="选择案件程序阶段" style="width:150px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;">
-                            <a-select-option value="全部">
-                              全部
-                            </a-select-option>
-                            <a-select-option value="一审阶段">
-                              一审阶段
-                            </a-select-option>
-                            <a-select-option value="二审阶段">
-                              二审阶段
-                            </a-select-option>
-                            <a-select-option value="执行阶段">
-                              执行阶段
-                            </a-select-option>
-                            <a-select-option value="再审阶段">
-                              再审阶段
-                            </a-select-option>
-                            <a-select-option value="行政复议">
-                              行政复议
-                            </a-select-option>
-                            <a-select-option value="劳动仲裁">
-                              劳动仲裁
-                            </a-select-option>
-                            <a-select-option value="结案闭单">
-                              结案闭单
-                            </a-select-option>
-                          </a-select>
-                        </div>
-
-                        <div style="display:inline;margin-left:5px;font-size:14px;margin-right:10px;">
-                          <span>案件类别</span>
-                          <a-select  v-model="legal.caseSType" default-value="起诉案件" placeholder="请选择案件类别！" style="width:150px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;">
-                            <a-select-option value="全部">
-                              全部
-                            </a-select-option>
-                            <a-select-option value="起诉案件">
-                              起诉案件
-                            </a-select-option>
-                            <a-select-option value="应诉案件">
-                              应诉案件
-                            </a-select-option>
-                          </a-select>
-                        </div>
-
-                        <div style="display:inline;margin-left:5px;font-size:14px;margin-right:10px;">
-                          <span>案件级别</span>
-                          <a-select  v-model="legal.legalType" default-value="一般案件"  placeholder="请选择案件类别" style="width:150px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;">
-                            <a-select-option value="全部">
-                              全部
-                            </a-select-option>
-                            <a-select-option value="一般案件">
-                              一般案件
-                            </a-select-option>
-                            <a-select-option value="重大案件">
-                              重大案件
-                            </a-select-option>
-                          </a-select>
-                        </div>
                         <a-button type="primary" @click="execSearch('view')" >查询</a-button>
-                        <a-button type="primary" @click="execFresh" style="display:none;">刷新</a-button>
-                        <a-button type="primary" @click="execApply" style="display:none;">新增</a-button>
                         <a-button type="primary" @click="execExport" >导出</a-button>
                     </div>
 
@@ -136,47 +74,6 @@
                                       </a-menu-item>
                                     </a-menu>
                                   </a-dropdown>
-                                  
-                                  <a-dropdown slot="actions" v-if=" item.stage != '结案闭单'">
-                                    <a class="ant-dropdown-link" @click="e => e.preventDefault()">
-                                      管理<a-icon type="down" />
-                                    </a>
-                                    <a-menu slot="overlay" >
-                                      <a-menu-item key="0" @click="execProcess(item , '案件进展')">
-                                        录入案件进展
-                                      </a-menu-item>
-                                      <a-menu-item key="1" @click="execHear(item , '一审阶段')">
-                                        进入一审阶段
-                                      </a-menu-item>
-                                      <a-menu-item key="2" @click="execHear(item , '二审阶段')">
-                                        进入二审阶段
-                                      </a-menu-item>
-                                      <a-menu-item key="3" @click="execHear(item , '执行阶段')">
-                                        进入执行阶段
-                                      </a-menu-item>
-                                      <a-menu-item key="4" @click="execHear(item , '再审阶段')">
-                                        进入再审阶段
-                                      </a-menu-item>
-                                      <a-menu-item key="100" @click="execHear(item , '结案闭单')">
-                                        结案闭单
-                                      </a-menu-item>
-                                    </a-menu>
-                                  </a-dropdown>
-
-                                  <a-dropdown slot="actions" v-if=" item.stage == '结案闭单'" >
-                                    <a class="ant-dropdown-link" @click="e => e.preventDefault()">
-                                      评价<a-icon type="down" />
-                                    </a>
-                                    <a-menu slot="overlay" >
-                                      <a-menu-item key="200" v-if=" item.evaluate_flag == 'N' " @click="execEvaluate(item,'evaluate')">
-                                        案件评价
-                                      </a-menu-item>
-                                      <a-menu-item key="299" v-if=" item.evaluate_flag == 'Y' " @click="execEvaluate(item,'view')">
-                                        查看评价
-                                      </a-menu-item>
-                                    </a-menu>
-                                  </a-dropdown>
-
 
                                   <a-list-item-meta :index="index" :description="`${item.caseID} 法院：${item.court}，法官：${item.judge}，程序：${item.stage}`" >
                                     <a slot="title" >{{ `序号: ${item.serialID} ${item.caseID} 程序：${item.stage} ，案由：${ item.caseType } ，原告：${item.accuser}，被告：${item.defendant.slice(0,15) + (item.defendant.length>15?'...':'') }` }}</a>
