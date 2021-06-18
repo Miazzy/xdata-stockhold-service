@@ -1,5 +1,5 @@
 <template>
-  <div id="reward-home" style="background-color:#f0f0f0;width:100%;height:auto;">
+  <div id="reward-home" style="background-color:#f0f0f0;width:100%;height:1000px;">
       <div style="background-color:#f0f0f0;width:100%;height:auto;">
       <a-menu mode="horizontal">
         <a-sub-menu>
