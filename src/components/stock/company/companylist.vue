@@ -52,8 +52,8 @@
                               <a-list item-layout="horizontal" :data-source="data">
                                 <a-list-item v-show=" item.status != '已删除' && item.status != '已作废' " slot="renderItem" slot-scope="item, index" style="position:relative;">
 
-                                  <a-list-item-meta :index="index" :description="`${item.caseID} 法院：${item.court}，法官：${item.judge}，程序：${item.stage}`" @click="execView(item)" >
-                                    <a slot="title" @click="execView(item)" >{{ `序号: ${item.serialID} ${item.caseID} 程序：${item.stage} ，案由：${ item.caseType } ，原告：${item.accuser}，被告：${item.defendant.slice(0,15) + (item.defendant.length>15?'...':'') }` }}</a>
+                                  <a-list-item-meta :index="index" :description="`编码: ${item.uniqueID} 地址: ${item.registeredAddress} ，经营范围: ${ item.businessScope.slice(0,100) + (item.businessScope.length > 100 ? '...' : '' ) } ` " @click="execView(item)" >
+                                    <a slot="title" @click="execView(item)" >{{ `公司：${item.company}，法人：${item.legalRepresentative}，注册资本：${item.munit == 'CNY' ? '￥': (item.munit == 'USD' ? '$': '') }${item.registeredCapital}(万)，公司类型：${item.companyType}，成立日期：${item.establish_time}，所在地：${item.province}` }}</a>
                                   </a-list-item-meta>
 
                                 </a-list-item>
@@ -231,9 +231,10 @@ export default {
         if(Betools.tools.isNull(userinfo) || Betools.tools.isNull(userinfo.username)){
             return [];
         }
-        let list = await Betools.manage.queryTableData(tableName , `_where=(registrationStatus,in,${status})${searchSql}&_sort=-id&_p=${page}&_size=${size}`);
+        let list = await Betools.manage.queryTableData(tableName , `_where=(registrationStatus,in,${status})${searchSql}&_sort=-registeredCapital&_p=${page}&_size=${size}`);
         list.map((item)=>{ 
             item.create_time = dayjs(item.create_time).format('YYYY-MM-DD'); 
+            item.establish_time = dayjs(item.establish_time).format('YYYY-MM-DD');
         });
         return list;
       },
@@ -368,12 +369,13 @@ export default {
         const toast = value == 'view' ? vant.Toast.loading({ duration: 0,  forbidClick: true,  message: '刷新中...', }):null;
         const { legal } = this;
         const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
-        let searchSql = typeof legal.value == 'string' ? `~and((company,like,~${legal.value}~)~or(create_by,like,~${legal.value}~))` : '';
+        let searchSql = typeof legal.value == 'string' ? `~and((company,like,~${legal.value}~)~or(businessScope,like,~${legal.value}~))` : '';
         let stageSql = Betools.tools.isNull(legal.stage) || legal.stage == '全部' ? '' : `~and(registrationStatus,in,存续)`;
         const data = await this.handleList(tableName , `存续`, userinfo, stageSql + searchSql , page , size);
         value == 'view' ? (this.data = data)  : null;
         await Betools.tools.sleep(300);
         value == 'view' ? (vant.Toast.clear()) : null;
+        debugger;
         return data; 
       },
 
