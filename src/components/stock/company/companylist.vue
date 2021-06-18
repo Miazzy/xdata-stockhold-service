@@ -35,13 +35,86 @@
               </div>
 
               <div style="background-color:#f0f0f0;">
-                <div id="legal-apply-content" class="reward-apply-content" style="height:auto; background-color:#fefefe; margin-top:0px; margin-left: 2.5rem; margin-right: 2.5rem; margin-bottom: 5rem; border: 1px solid #f0f0f0; front-size: 1rem;" >
+                <div id="legal-apply-content" class="reward-apply-content" style="height:auto; background:#fbf9fe; margin-top:0px; margin-left: 2.5rem; margin-right: 2.5rem; margin-bottom: 5rem; border: 1px solid #f0f0f0; front-size: 1rem;" >
                 <div style="width:100%;margin-left:0px;margin-right:0px;background:#fbf9fe;">
 
-                    <div class="reward-top-button" style="margin-top:20px;margin-bottom:20px; margin-left:20px;">
+                    <div class="reward-top-button" style="margin-top:20px;margin-bottom:20px; margin-left:20px; background:#fbf9fe;">
                         <a-input-search v-model="legal.value" placeholder="输入搜索关键字、案件名称、相关信息等" style="width:450px;" enter-button @search="execSearch('view' , 0 , 10)" />
+                        
+                        <div style="display:inline; margin-left:15px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>所在省份</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入所在省份！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>行业分类</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入所在省份！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>法人名称</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入企业状态！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
                         <a-button type="primary" @click="execSearch('view' , 0, 10)" >查询</a-button>
                         <a-button type="primary" @click="execExport" >导出</a-button>
+                    </div>
+
+                    <div class="reward-top-button" style="margin-top:20px;margin-bottom:20px; margin-left:20px;">
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>机构类型</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入机构类型！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>资本类型</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入资本类型！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>企业类型</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入企业类型！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>企业状态</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入企业状态！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>企业编码</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入企业状态！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                    </div>
+
+                    <div class="reward-top-button" style="margin-top:20px;margin-bottom:20px; margin-left:20px;">
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>企业地址</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入企业状态！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>经营范围</span>
+                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入企业状态！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>注册资本</span>
+                          <a-input v-model="search.smoney" :readonly="false" placeholder="请输入最小注册资本！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                          至
+                          <a-input v-model="search.emoney" :readonly="false" placeholder="请输入最大注册资本！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
+                        <div style="display:inline; margin-left:10px; margin-right:10px;">
+                          <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>成立时间</span>
+                          <a-input v-model="search.startEtime" :readonly="false" placeholder="请输入起始成立时间！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                          至
+                          <a-input v-model="search.endEtime" :readonly="false" placeholder="请输入最终成立时间！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                        </div>
+
                     </div>
 
                     <div style="margin-left:20px;">
@@ -168,6 +241,9 @@ export default {
         caseSType:'全部',
         legalType:'全部',
       },
+      search:{
+        zone:'',
+      },
       data: [],
       readonly: false,
       userList:[],
@@ -180,13 +256,7 @@ export default {
       columns:[],
       data:[],
       rowSelection:[],
-      stageVal:{
-        '一审阶段': 1,
-        '二审阶段': 2,
-        '执行阶段': 2,
-        '再审阶段': 2,
-        '结案闭单': 100,
-      },
+      stageVal:{},
       breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'工商管理',path:'/stock/workspace'},{icon:'form',text:'公司工商查询',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','重庆区域':'重庆区域','两湖区域':'两湖区域','川北区域':'川北区域','成都区域':'成都区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
