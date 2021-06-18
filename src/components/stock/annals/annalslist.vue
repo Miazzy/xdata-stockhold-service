@@ -52,44 +52,13 @@
                               <a-list item-layout="horizontal" :data-source="data">
                                 <a-list-item v-show=" item.status != '已删除' && item.status != '已作废' " slot="renderItem" slot-scope="item, index" style="position:relative;">
 
-                                  <a-dropdown slot="actions">
-                                    <a class="ant-dropdown-link" @click="e => e.preventDefault()">
-                                      操作<a-icon type="down" />
-                                    </a>
-                                    <a-menu slot="overlay" >
-                                      <a-menu-item key="200" @click="execView(item)">
-                                        查看案件
-                                      </a-menu-item>
-                                      <a-menu-item v-if=" item.stage != '结案闭单'" key="201" @click="execPatch(item)">
-                                        修改案件
-                                      </a-menu-item>
-                                      <a-menu-item v-if=" item.stage != '结案闭单' && item.status == '待处理' " key="101" @click="execDelete(item)">
-                                        删除案件
-                                      </a-menu-item>
-                                      <a-menu-item v-if=" item.stage != '结案闭单' && item.status == '待处理' " key="99" @click="execBan(item)">
-                                        禁用案件
-                                      </a-menu-item>
-                                      <a-menu-item key="300" @click="execNotify(item)">
-                                        发起知会
-                                      </a-menu-item>
-                                    </a-menu>
-                                  </a-dropdown>
-
-                                  <a-list-item-meta :index="index" :description="`${item.caseID} 法院：${item.court}，法官：${item.judge}，程序：${item.stage}`" >
-                                    <a slot="title" >{{ `序号: ${item.serialID} ${item.caseID} 程序：${item.stage} ，案由：${ item.caseType } ，原告：${item.accuser}，被告：${item.defendant.slice(0,15) + (item.defendant.length>15?'...':'') }` }}</a>
+                                  <a-list-item-meta :index="index" :description="`${item.caseID} 法院：${item.court}，法官：${item.judge}，程序：${item.stage}`" @click="execView(item)" >
+                                    <a slot="title" @click="execView(item)" >{{ `序号: ${item.serialID} ${item.caseID} 程序：${item.stage} ，案由：${ item.caseType } ，原告：${item.accuser}，被告：${item.defendant.slice(0,15) + (item.defendant.length>15?'...':'') }` }}</a>
                                   </a-list-item-meta>
 
-                                  <a-badge style="float:left;z-index:1000000;right:-10px;position:absolute;top:35px;">
-                                    <a-icon slot="count" :type="item.stage == '结案闭单' ? 'check-circle' : item.stage == '一审阶段' ? 'question-circle':'clock-circle'" :style="item.stage == '结案闭单' ? `color:DodgerBlue;`: item.stage == '一审阶段' ? `color:Chocolate;`:`color: #f5222d;`" />
-                                  </a-badge>
                                 </a-list-item>
                               </a-list>
                           </div>
-                        </a-tab-pane>
-
-                        <a-tab-pane key="2" tab="表格" force-render>
-                          <a-empty v-if="data.length == 0" style="margin-top:10%;height:580px;"/>
-                          <a-table v-if="data.length > 0 " style="width:105%;" size="middle" tableLayout="column.ellipsis" :bordered="false" :columns="columns" :data-source="data"  />
                         </a-tab-pane>
 
                         <a-tab-pane key="3" tab="表单">
@@ -214,7 +183,7 @@ export default {
         { title: '受理法院', dataIndex: 'court', key: 'court', },
         { title: '承办法官', dataIndex: 'judge', key: 'judge', },
         { title: '内部律师(承)', dataIndex: 'inHouseLawyers', key: 'inHouseLawyers', },
-        { title: '案件状态', dataIndex: 'legalStatus', key: 'legalStatus', }, // { title: '流程标题', dataIndex: 'title', key: 'title', }, // { title: '填报日期', dataIndex: 'create_time', key: 'create_time', }, // { title: '填报人员', dataIndex: 'create_by', key: 'create_by', }, // { title: '案件类别', dataIndex: 'legalType', key: 'legalType', }, // { title: '所属板块', dataIndex: 'plate', key: 'plate', }, // { title: '公司名称', dataIndex: 'firm', key: 'firm', }, // { title: '所属区域', dataIndex: 'zone', key: 'zone', }, // { title: '项目名称', dataIndex: 'zoneProject', key: 'zoneProject', }, // { title: '第三人', dataIndex: 'thirdParty', key: 'thirdParty', }, // { title: '外聘律所', dataIndex: 'externalFlag', key: 'externalFlag', }, // { title: '外聘律所名称', dataIndex: 'lawOffice', key: 'lawOffice', }, // { title: '委托时间', dataIndex: 'lawOfficeTime', key: 'lawOfficeTime', }, // { title: '外聘律师', dataIndex: 'lawyer', key: 'lawyer', }, // { title: '律师电话', dataIndex: 'lawyerMobile', key: 'lawyerMobile', }, // { title: '诉讼请求', dataIndex: 'claims', key: 'claims', }, // { title: '诉讼本金', dataIndex: 'claimsCapital', key: 'claimsCapital', }, // { title: '诉讼违约金', dataIndex: 'claimsDedit', key: 'claimsDedit', }, // { title: '诉讼标的额', dataIndex: 'claimsBidSum', key: 'claimsBidSum', }, // { title: '法官电话', dataIndex: 'judgeMobile', key: 'judgeMobile', }, // { title: '外部律师(承办)', dataIndex: 'outHouseLawyers', key: 'outHouseLawyers', }, // { title: '事项披露', dataIndex: 'disclosure', key: 'disclosure', }, // { title: '案件进展', dataIndex: 'lawcase', key: 'lawcase', }, // { title: '最后修改时间', dataIndex: 'lastTime', key: 'lastTime', }, // { title: '最后修改人员', dataIndex: 'lastModifier', key: 'lastModifier', }, // { title: '结案日期', dataIndex: 'closeDate', key: 'closeDate', }, // { title: '归档日期', dataIndex: 'archiveDate', key: 'archiveDate', }, // { title: '办理进展', dataIndex: 'progress', key: 'progress', }, // { title: '申请人姓名', dataIndex: 'apply_realname', key: 'apply_realname', }, // { title: '申请人账号', dataIndex: 'apply_username', key: 'apply_username', }, // { title: '案件类型', dataIndex: 'legalTname', key: 'legalTname', },
+        { title: '案件状态', dataIndex: 'legalStatus', key: 'legalStatus', }, 
       ],
       data:[],
       rowSelection:[],
@@ -225,7 +194,7 @@ export default {
         '再审阶段': 2,
         '结案闭单': 100,
       },
-      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'案件管控',path:'/stock/workspace'},{icon:'form',text:'案件管理',path:''}],
+      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'工商管理',path:'/stock/workspace'},{icon:'form',text:'公司工商查询',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','重庆区域':'重庆区域','两湖区域':'两湖区域','川北区域':'川北区域','成都区域':'成都区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
     };
