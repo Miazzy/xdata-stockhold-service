@@ -181,7 +181,7 @@ export const reward = ($router) => {
             href: "/account/myanalyse",
             description: '公司工商及股权信息查询',
             click: () => {
-                $router.push(`/stock/course/lawsuitlist?&type=99&status=finish&legalTname=all&stage=结案闭单`, '_blank');
+                $router.push(`/stock/company/companylist?&type=99&status=finish&legalTname=all&stage=结案闭单`, '_blank');
             },
         }, {
             name: "质押记录管理",
@@ -189,7 +189,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '公司质押记录管理',
             click: () => {
-                $router.push(`/stock/lawyer/lawyerapply?type=1&tname=律师录入&apply=new`, '_blank');
+                $router.push(`/stock/pledge/pledgelist?type=1&tname=律师录入&apply=new`, '_blank');
             }
         }, {
             name: "资质记录管理",
@@ -197,7 +197,15 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '公司资质记录管理',
             click: () => {
-                $router.push(`/stock/firm/firmlist?type=1&tname=律所管理&apply=管理`, '_blank');
+                $router.push(`/stock/qualification/qualificationlist?type=1&tname=律所管理&apply=管理`, '_blank');
+            }
+        }, {
+            name: "年报记录管理",
+            avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xiezuowendangku_jy.png`,
+            href: "/account/todolist",
+            description: '年报记录管理',
+            click: () => {
+                $router.push(`/stock/qualification/qualificationlist?type=1&tname=律所管理&apply=管理`, '_blank');
             }
         }],
     }, {
