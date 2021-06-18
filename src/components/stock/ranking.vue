@@ -34,76 +34,10 @@
               </van-sidebar>
             </div>
 
-            <div style="position:absolute; left:80px; width:900px;" >
-
-              <div id="" class="" style="padding-left:0.75rem;padding-top:0.25rem;padding-bottom:0.25rem;background-color:#fefefe;" >
-                <a-breadcrumb>
-                  <template v-for="(elem,index) in breadcrumb">
-                    <a-breadcrumb-item :key="elem.icon" :index="index" >
-                      <a-icon :type="elem.icon" />
-                      <span @click="redirectFunc(elem.text)">{{ elem.text }}</span>
-                    </a-breadcrumb-item>
-                  </template>
-                </a-breadcrumb>
-              </div>
-
-              <template v-for="(pane,index) in paneflows"  >
-                <a-card v-show="pane.display" :key="pane.id"  :title="pane.title"  class="pane-flow-card" >
-                  <template v-for="item in pane.taskflows"  >
-                    <a-card-grid :key="item.href" style="width:25%;textAlign:'center'">
-                      <a-card-meta>
-                        <div slot="title" class="card-title pane-flow-card-meta" @click="item.click" >
-                          <div class="pane-flow-card-meta-icon">
-                            <a-avatar size="large"  :src="item.avatar" />
-                          </div>
-                          <div class="pane-flow-card-meta-title" >
-                            <a class="pane-flow-card-meta-tname" >{{ item.name }}</a>
-                            <div class="pane-flow-card-meta-description" > {{ item.description }} </div>
-                          </div>
-                        </div>
-                      </a-card-meta>
-                    </a-card-grid>
-                  </template>
-                </a-card>
-                <a-card v-show="pane.display" v-if="index <= 1000" :key="pane.id + pane.title" :title="' '" class="pane-flow-card-middle" >
-                </a-card>
-              </template>
-            </div>
-
-            <div style="position:absolute; left:1000px; width: 300px;">
+            <div style="position:absolute; left:80px; width: 300px;">
+                
                 <div id="nav-content-law" style="">
-                  <a-card :loading="loading" title="企业信息查询" :bordered="false" style="margin-top:0px;">
-                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
-                    <div class="members" >
-                      <a-row>
-                        <a-col :span="item.span" v-for="item in lawsites" :key="item.href" style="padding-bottom:10px;">
-                          <a @click="item.click" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px;">
-                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px;" >{{ item.name }}</span>
-                          </a>
-                        </a-col>
-                      </a-row>
-                    </div>
-                  </a-card>
-                </div>
-
-                <div v-if="wflows && wflows.length > 0" id="nav-content-process" style="">
-                  <a-card :loading="loading" title="股权管理流程" :bordered="false" style="margin-top:10px;">
-                    <a-tag color="blue" style="margin-bottom:10px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
-                    <div class="members">
-                      <a-row>
-                        <a-col :span="12" v-for="item in wflows" :key="item.href">
-                          <a @click="item.click">
-                            <a-avatar class="pane-right-avatar" size="small" :src="item.avatar" />
-                            <span class="member">{{ item.name }}</span>
-                          </a>
-                        </a-col>
-                      </a-row>
-                    </div>
-                  </a-card>
-                </div>
-
-                <div id="nav-content-law" style="">
-                  <a-card :loading="loading" title="注册资本榜" :bordered="false" style="margin-top:10px;">
+                  <a-card :loading="loading" title="注册资本榜" :bordered="false" style="margin-top:0px;">
                     <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
                       <a-row>
