@@ -39,8 +39,8 @@
                 <div style="width:100%;margin-left:0px;margin-right:0px;background:#fbf9fe;">
 
                     <div class="reward-top-button" style="margin-top:20px;margin-bottom:20px; margin-left:20px;">
-                        <a-input-search v-model="legal.value" placeholder="输入搜索关键字、案件名称、相关信息等" style="width:450px;" enter-button @search="execSearch('view')" />
-                        <a-button type="primary" @click="execSearch('view')" >查询</a-button>
+                        <a-input-search v-model="legal.value" placeholder="输入搜索关键字、案件名称、相关信息等" style="width:450px;" enter-button @search="execSearch('view' , 0 , 10)" />
+                        <a-button type="primary" @click="execSearch('view' , 0, 10)" >查询</a-button>
                         <a-button type="primary" @click="execExport" >导出</a-button>
                     </div>
 
@@ -220,28 +220,20 @@ export default {
           this.back = Betools.tools.getUrlParam('back') || '/stock/workspace'; //查询上一页
           this.legal.stage = Betools.tools.getUrlParam('stage') || '全部';
           const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
-          this.execSearch('view');
+          this.execSearch('view',0,10);
         } catch (error) {
           console.log(error);
         }
       },
 
       //查询不同状态的领用数据
-      async handleList(tableName , status = '待处理,处理中,审批中,已完成,已结案,已驳回', userinfo, searchSql , page = 0 , size = 10000){
+      async handleList(tableName , status = '存续', userinfo, searchSql , page = 0 , size = 10000){
         if(Betools.tools.isNull(userinfo) || Betools.tools.isNull(userinfo.username)){
             return [];
         }
-        let list = await Betools.manage.queryTableData(tableName , `_where=(status,in,${status})${searchSql}&_sort=-id&_p=${page}&_size=${size}`);
+        let list = await Betools.manage.queryTableData(tableName , `_where=(registrationStatus,in,${status})${searchSql}&_sort=-id&_p=${page}&_size=${size}`);
         list.map((item)=>{ 
             item.create_time = dayjs(item.create_time).format('YYYY-MM-DD'); 
-            item.receiveTime = dayjs(item.receiveTime).format('YYYY-MM-DD') == 'Invalid Date' ? '/' : dayjs(item.receiveTime).format('YYYY-MM-DD');
-            item.lawRTime = dayjs(item.lawRTime).format('YYYY-MM-DD') == 'Invalid Date' ? '/' : dayjs(item.lawRTime).format('YYYY-MM-DD');
-            item.handledTime = dayjs(item.handledTime).format('YYYY-MM-DD') == 'Invalid Date' ? '/' : dayjs(item.handledTime).format('YYYY-MM-DD');
-            item.legalStatus = Betools.tools.isNull(item.legalStatus) ? '开庭举证' : item.legalStatus;
-            item.caseType = JSON.parse(item.caseType);
-            item.court = JSON.parse(item.court);
-            Betools.tools.isNull(item.court[item.court.length-1]) ? item.court = item.court.slice(0,item.court.length-1) : null;
-            item.court = Betools.tools.deNull(item.court[item.court.length-1],'') ;
         });
         return list;
       },
@@ -362,25 +354,23 @@ export default {
       },
 
       // 案件列表执行刷新操作45
-      async execFresh(value = ''){
-        await this.execSearch(value);
+      async execFresh(value = '' , page = 0, size = 10){
+        await this.execSearch(value, page , size);
       },
 
 
 
       // 案件列表执行搜索功能
-      async execSearch(value = ''){
+      async execSearch(value = '', page = 0 , size = 10){
         console.log(`exec search ...` , dayjs().format('HH:mm:ss'));
         const tableName = this.viewname;
         const cacheRandomKey = value == 'view' ? ',' + Math.random().toString().slice(2,6) : '';
         const toast = value == 'view' ? vant.Toast.loading({ duration: 0,  forbidClick: true,  message: '刷新中...', }):null;
         const { legal } = this;
         const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
-        let searchSql = typeof legal.value == 'string' ? `~and((title,like,~${legal.value}~)~or(create_by,like,~${legal.value}~)~or(fstPlan,like,~${legal.value}~)~or(legalType,like,~${legal.value}~)~or(plate,like,~${legal.value}~)~or(firm,like,~${legal.value}~)~or(legalTname,like,~${legal.value}~)~or(zone,like,~${legal.value}~)~or(zoneProject,like,~${legal.value}~)~or(caseID,like,~${legal.value}~)~or(caseType,like,~${legal.value}~)~or(caseSType,like,~${legal.value}~)~or(stage,like,~${legal.value}~)~or(accuser,like,~${legal.value}~)~or(defendant,like,~${legal.value}~)~or(court,like,~${legal.value}~)~or(judge,like,~${legal.value}~)~or(judgeMobile,like,~${legal.value}~)~or(inHouseLawyers,like,~${legal.value}~)~or(disclosure,like,~${legal.value}~)~or(lawcase,like,~${legal.value}~)~or(thirdParty,like,~${legal.value}~)~or(lawOffice,like,~${legal.value}~)~or(lawyer,like,~${legal.value}~)~or(lawyerMobile,like,~${legal.value}~)~or(claims,like,~${legal.value}~))` : '';
-        let stageSql = Betools.tools.isNull(legal.stage) || legal.stage == '全部' ? '' : `~and(stage,in,${legal.stage})`;
-        let caseSTypeSQL = Betools.tools.isNull(legal.caseSType) || legal.caseSType == '全部' ? '':`~and(caseSType,eq,${legal.caseSType})`;
-        let legalTypeSQL = Betools.tools.isNull(legal.legalType) || legal.legalType == '全部' ? '':`~and(legalType,eq,${legal.legalType})`;
-        const data = await this.handleList(tableName , `待处理,处理中,审批中,已完成,已结案,已驳回${cacheRandomKey}`, userinfo, stageSql + caseSTypeSQL + legalTypeSQL + searchSql , 0 , 10000);
+        let searchSql = typeof legal.value == 'string' ? `~and((company,like,~${legal.value}~)~or(create_by,like,~${legal.value}~))` : '';
+        let stageSql = Betools.tools.isNull(legal.stage) || legal.stage == '全部' ? '' : `~and(registrationStatus,in,存续)`;
+        const data = await this.handleList(tableName , `存续`, userinfo, stageSql + searchSql , page , size);
         value == 'view' ? (this.data = data)  : null;
         await Betools.tools.sleep(300);
         value == 'view' ? (vant.Toast.clear()) : null;
