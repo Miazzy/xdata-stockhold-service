@@ -43,7 +43,7 @@
                         
                         <div style="display:inline; margin-left:15px; margin-right:10px;">
                           <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>所在省份</span>
-                          <a-input v-model="search.zone" :readonly="false" placeholder="请输入所在省份！" style="width:150px; border: 0px solid #fefefe; border-bottom: 1px solid #f0f0f0;"  />
+                            <a-auto-complete v-model="search.province" :data-source="search.provinceSource" placeholder="请输入所在省份！" style="width: 200px"  :filter-option="filterOption" />
                         </div>
 
                         <div style="display:inline; margin-left:10px; margin-right:10px;">
@@ -132,7 +132,7 @@
                                 </a-list-item>
                               </a-list>
                               <a-divider type="horizontal" />
-                              <a-pagination show-size-changer :default-current="1" :showQuickJumper="true" :total="500" @showSizeChange="paginationView" @change="paginationView" :pageSizeOptions="['10', '20', '30', '40', '50', '100', '1000', '10000']" > 
+                              <a-pagination show-size-changer :default-current="1" :showQuickJumper="true" :total="search.total" @showSizeChange="paginationView" @change="paginationView" :pageSizeOptions="['10', '20', '30', '40', '50', '100', '1000', '10000']" > 
                                 <template slot="buildOptionText" slot-scope="props">
                                   <span >{{ props.value }}条/页</span>
                                 </template>
@@ -242,7 +242,10 @@ export default {
         legalType:'全部',
       },
       search:{
+        total:'500',
         zone:'',
+        province:'',
+        provinceSource:[],
       },
       data: [],
       readonly: false,
@@ -272,6 +275,19 @@ export default {
       isNull:Betools.tools.isNull,
       deNull:Betools.tools.deNull,
 
+      async provinceSearch(){
+        const { search } = this;
+        const value = search.province;
+        let list = await Betools.manage.queryTableData('v_company_sum' , ``);
+        search.provinceSource = list.map(e=>e.province);
+      },
+
+      filterOption(input, option) {
+        return (
+          option.componentOptions.children[0].text.toUpperCase().indexOf(input.toUpperCase()) >= 0
+        );
+      },
+
       // 企业微信登录处理函数
       async  weworkLogin  (codeType = 'search', systemType = 'search')  {
         const userinfo_work = await Betools.query.queryWeworkUser(codeType, systemType,'v5');
@@ -297,6 +313,7 @@ export default {
           this.legal.stage = Betools.tools.getUrlParam('stage') || '全部';
           const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
           this.execSearch('view',0,10);
+          this.provinceSearch();
         } catch (error) {
           console.log(error);
         }
@@ -307,7 +324,9 @@ export default {
         if(Betools.tools.isNull(userinfo) || Betools.tools.isNull(userinfo.username)){
             return [];
         }
-        let list = await Betools.manage.queryTableData(tableName , `_where=(registrationStatus,in,${status})${searchSql}&_sort=-registeredCapital&_p=${page}&_size=${size}`);
+        const condition = `_where=(registrationStatus,in,${status})${searchSql}&_sort=-registeredCapital&_p=${page}&_size=${size}`;
+        let list = await Betools.manage.queryTableData(tableName ,condition );
+        this.search.total = await Betools.manage.queryTableDataCount(tableName, condition);
         list.map((item)=>{ 
             item.create_time = dayjs(item.create_time).format('YYYY-MM-DD'); 
             item.establish_time = dayjs(item.establish_time).format('YYYY-MM-DD');
@@ -443,15 +462,15 @@ export default {
         const tableName = this.viewname;
         const cacheRandomKey = value == 'view' ? ',' + Math.random().toString().slice(2,6) : '';
         const toast = value == 'view' ? vant.Toast.loading({ duration: 0,  forbidClick: true,  message: '刷新中...', }):null;
-        const { legal } = this;
+        const { legal, search } = this;
         const userinfo = await Betools.storage.getStore('system_userinfo');  //获取用户基础信息
         let searchSql = typeof legal.value == 'string' ? `~and((company,like,~${legal.value}~)~or(businessScope,like,~${legal.value}~))` : '';
         let stageSql = Betools.tools.isNull(legal.stage) || legal.stage == '全部' ? '' : `~and(registrationStatus,in,存续)`;
-        const data = await this.handleList(tableName , `存续`, userinfo, stageSql + searchSql , page , size);
+        let provinceSql = Betools.tools.isNull(search.province) ? '' :`~and(province,in,${search.province})`;
+        const data = await this.handleList(tableName , `存续`, userinfo, stageSql + provinceSql + searchSql , page , size);
         value == 'view' ? (this.data = data)  : null;
         await Betools.tools.sleep(300);
         value == 'view' ? (vant.Toast.clear()) : null;
-        debugger;
         return data; 
       },
 
