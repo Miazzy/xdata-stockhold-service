@@ -59,7 +59,7 @@
                                 </a-list-item>
                               </a-list>
                               <a-divider type="horizontal" />
-                              <a-pagination show-size-changer :default-current="1" :total="500" @showSizeChange="paginationView" @change="paginationView" :pageSizeOptions="['10', '20', '30', '40', '50', '100', '1000', '10000']" > 
+                              <a-pagination show-size-changer :default-current="1" :showQuickJumper="true" :total="500" @showSizeChange="paginationView" @change="paginationView" :pageSizeOptions="['10', '20', '30', '40', '50', '100', '1000', '10000']" > 
                                 <template slot="buildOptionText" slot-scope="props">
                                   <span >{{ props.value }}条/页</span>
                                 </template>
