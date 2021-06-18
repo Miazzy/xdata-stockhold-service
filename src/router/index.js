@@ -23,6 +23,13 @@ const routes = [{
         "subPage": resolve => require(["../components/stock/workspace.vue"], resolve)
     }
 }, {
+    path: '/stock/ranking',
+    name: "排行榜",
+    components: {
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/ranking.vue"], resolve)
+    }
+}, {
     path: '/stock/case/legalapply',
     name: "案件申请",
     components: {

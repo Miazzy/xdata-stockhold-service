@@ -28,16 +28,16 @@
                 <van-sidebar-item style="display:none;" title="云文档" :to="`/stock/netdisk`" />
                 <van-sidebar-item style="display:none;" title="联系人" :to="`/stock/contact`" />
                 <van-sidebar-item style="display:block;" title="工作台" :to="`/stock/workspace`" />
-                <van-sidebar-item style="display:block;" title="排行榜" :to="`/stock/workspace`" />
+                <van-sidebar-item style="display:block;" title="排行榜" :to="`/stock/ranking`" />
                 <van-sidebar-item style="display:none;" title="收藏" :to="`/stock/collect`" />
                 <van-sidebar-item style="display:none;" title="设置" :to="`/stock/setup`" />
               </van-sidebar>
             </div>
 
-            <div style="position:absolute; left:80px; width: 300px;">
+            <div style="position:absolute; left:120px; width: 300px;">
                 
                 <div id="nav-content-law" style="">
-                  <a-card :loading="loading" title="注册资本榜" :bordered="false" style="margin-top:0px;">
+                  <a-card :loading="loading" title="注册资本榜" :bordered="false" style="margin-top:5px;">
                     <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
                       <a-row>
@@ -54,6 +54,114 @@
 
                 <div id="nav-content-law" style="">
                   <a-card :loading="loading" title="企业分布榜" :bordered="false" style="margin-top:10px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in zones" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
+
+            </div>
+
+            <div style="position:absolute; left:450px; width: 300px;">
+                
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="行业分布榜" :bordered="false" style="margin-top:5px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in industrys" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
+
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="城市分布榜" :bordered="false" style="margin-top:10px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in citys" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
+
+            </div>
+
+            <div style="position:absolute; left:780px; width: 300px;">
+                
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="法人排行榜" :bordered="false" style="margin-top:5px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in companys" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
+
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="董事长排行榜" :bordered="false" style="margin-top:10px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in zones" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
+
+            </div>
+
+            <div style="position:absolute; left:1110px; width: 300px;">
+                
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="执行董事榜" :bordered="false" style="margin-top:5px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in companys" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
+
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="经理排行榜" :bordered="false" style="margin-top:10px;">
                     <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
                       <a-row>
@@ -89,15 +197,17 @@ export default {
   data() {
     const { $router } = this;
     return {
-      pageName: "案件管理",
+      pageName: "排行榜",
       momentNewMsg: true,
-      activeTabKey: 3,
+      activeTabKey: 4,
       iswechat:'',
       paneflows: workconfig.reward($router),
       wflows: workconfig.getRewardWflow($router),
       lawsites: workconfig.getLawWebsiteflow($router),
       companys: workconfig.getCompanyflow($router),
       zones: workconfig.getZoneflow($router),
+      citys: workconfig.getCityflow($router),
+      industrys: workconfig.getIndustryflow($router),
       quicktags: workconfig.getRewardQuickTag($router),
       userinfo: '',
       usertitle:'',

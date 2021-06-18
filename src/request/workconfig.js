@@ -387,6 +387,174 @@ export const getRewardWflow = ($router) => {
     return [];
 }
 
+export const getIndustryflow = ($router) => {
+    return [{
+        name: "房地产行业 - 合计：230家,注册资本￥1699805(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "物业行业 - 合计：64家,注册资本￥11303(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "商管行业 - 合计：60家,注册资本￥116496(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "金融行业 - 合计：21家,注册资本￥126816(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "商贸行业 - 合计：14家,注册资本￥50000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "建筑行业 - 合计：11家,注册资本￥31000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "高新技术行业 - 合计：8家,注册资本￥21318(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "监理行业 - 合计：4家,注册资本￥2000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "医疗行业 - 合计：4家,注册资本￥9000(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "商务咨询行业 - 合计：2家,注册资本￥250(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }];
+}
+
+export const getCityflow = ($router) => {
+    return [{
+        name: "成都 - 合计：124家,注册资本￥1185628(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "眉山 - 合计：30家,注册资本￥103044(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "凉山 - 合计：26家,注册资本￥50120(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "绵阳 - 合计：21家,注册资本￥59568(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "乐山 - 合计：18家,注册资本￥51850(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "雅安 - 合计：17家,注册资本￥50782(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "拉萨 - 合计：11家,注册资本￥69500(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "库尔勒 - 合计：11家,注册资本￥12200(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "乌鲁木齐 - 合计：10家,注册资本￥44546(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "南充 - 合计：10家,注册资本￥35098(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }]
+}
+
 export const getZoneflow = ($router) => {
     return [{
         name: "四川 - 合计：266家,注册资本￥1591001(万)",

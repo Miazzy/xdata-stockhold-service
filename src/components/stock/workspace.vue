@@ -28,7 +28,7 @@
                 <van-sidebar-item style="display:none;" title="云文档" :to="`/stock/netdisk`" />
                 <van-sidebar-item style="display:none;" title="联系人" :to="`/stock/contact`" />
                 <van-sidebar-item style="display:block;" title="工作台" :to="`/stock/workspace`" />
-                <van-sidebar-item style="display:block;" title="排行榜" :to="`/stock/workspace`" />
+                <van-sidebar-item style="display:block;" title="排行榜" :to="`/stock/ranking`" />
                 <van-sidebar-item style="display:none;" title="收藏" :to="`/stock/collect`" />
                 <van-sidebar-item style="display:none;" title="设置" :to="`/stock/setup`" />
               </van-sidebar>
@@ -155,7 +155,7 @@ export default {
   data() {
     const { $router } = this;
     return {
-      pageName: "案件管理",
+      pageName: "工作台",
       momentNewMsg: true,
       activeTabKey: 3,
       iswechat:'',
