@@ -58,19 +58,7 @@
                                     </a>
                                     <a-menu slot="overlay" >
                                       <a-menu-item key="200" @click="execView(item)">
-                                        查看案件
-                                      </a-menu-item>
-                                      <a-menu-item v-if=" item.stage != '结案闭单'" key="201" @click="execPatch(item)">
-                                        修改案件
-                                      </a-menu-item>
-                                      <a-menu-item v-if=" item.stage != '结案闭单' && item.status == '待处理' " key="101" @click="execDelete(item)">
-                                        删除案件
-                                      </a-menu-item>
-                                      <a-menu-item v-if=" item.stage != '结案闭单' && item.status == '待处理' " key="99" @click="execBan(item)">
-                                        禁用案件
-                                      </a-menu-item>
-                                      <a-menu-item key="300" @click="execNotify(item)">
-                                        发起知会
+                                        查看详情
                                       </a-menu-item>
                                     </a-menu>
                                   </a-dropdown>
@@ -85,11 +73,6 @@
                                 </a-list-item>
                               </a-list>
                           </div>
-                        </a-tab-pane>
-
-                        <a-tab-pane key="2" tab="表格" force-render>
-                          <a-empty v-if="data.length == 0" style="margin-top:10%;height:580px;"/>
-                          <a-table v-if="data.length > 0 " style="width:105%;" size="middle" tableLayout="column.ellipsis" :bordered="false" :columns="columns" :data-source="data"  />
                         </a-tab-pane>
 
                         <a-tab-pane key="3" tab="表单">
