@@ -152,8 +152,8 @@ export default {
       activeTabKey: 3,
       acceptType:'*/*',
       uploadURL:'',
-      tablename:'bs_legal',
-      viewname:'bs_legal',
+      tablename:'bs_company_flow_data',
+      viewname:'bs_company_flow_data',
       size: 0,
       options:{},
       legal:{
