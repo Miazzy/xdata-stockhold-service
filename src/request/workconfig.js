@@ -149,7 +149,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '设立公司申请',
             click: () => {
-                $router.push(`/stock/company/companyapply?type=0&tname=设立公司`, '_blank');
+                $router.push(`/stock/company/companyapply?type=1&tname=设立公司&apply=new`, '_blank');
             }
         }, {
             name: "录入质押申请",
@@ -157,7 +157,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '录入质押申请',
             click: () => {
-                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
+                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押&apply=new`, '_blank');
             }
         }, {
             name: "录入资质申请",
@@ -165,7 +165,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '录入资质申请',
             click: () => {
-                $router.push(`/stock/qualification/qualificationapply?type=1&tname=录入资质`, '_blank');
+                $router.push(`/stock/qualification/qualificationapply?type=1&tname=录入资质&apply=new`, '_blank');
             }
         }, {
             name: "上传年报申请",
@@ -173,7 +173,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '上传年报申请',
             click: () => {
-                $router.push(`/stock/qualification/qualificationapply?type=1&tname=录入资质`, '_blank');
+                $router.push(`/stock/annals/annalsapply?type=1&tname=上传年报&apply=new`, '_blank');
             }
         }, {
             name: "公司工商查询",
@@ -181,7 +181,7 @@ export const reward = ($router) => {
             href: "/account/myanalyse",
             description: '公司工商及股权信息查询',
             click: () => {
-                $router.push(`/stock/company/companylist?&type=99&status=finish&legalTname=all&stage=结案闭单`, '_blank');
+                $router.push(`/stock/company/companylist?type=1&tname=公司记录&apply=manage`, '_blank');
             },
         }, {
             name: "质押记录管理",
@@ -189,7 +189,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '公司质押记录管理',
             click: () => {
-                $router.push(`/stock/pledge/pledgelist?type=1&tname=律师录入&apply=new`, '_blank');
+                $router.push(`/stock/pledge/pledgelist?type=1&tname=质押记录&apply=manage`, '_blank');
             }
         }, {
             name: "资质记录管理",
@@ -197,7 +197,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '公司资质记录管理',
             click: () => {
-                $router.push(`/stock/qualification/qualificationlist?type=1&tname=律所管理&apply=管理`, '_blank');
+                $router.push(`/stock/qualification/qualificationlist?type=1&tname=资质记录&apply=manage`, '_blank');
             }
         }, {
             name: "年报记录管理",
@@ -205,7 +205,7 @@ export const reward = ($router) => {
             href: "/account/todolist",
             description: '年报记录管理',
             click: () => {
-                $router.push(`/stock/qualification/qualificationlist?type=1&tname=律所管理&apply=管理`, '_blank');
+                $router.push(`/stock/annals/annalslist?type=1&tname=年报记录&apply=manage`, '_blank');
             }
         }],
     }, {
