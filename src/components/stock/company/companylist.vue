@@ -52,8 +52,8 @@
                               <a-list item-layout="horizontal" :data-source="data">
                                 <a-list-item v-show=" item.status != '已删除' && item.status != '已作废' " slot="renderItem" slot-scope="item, index" style="position:relative;">
 
-                                  <a-list-item-meta :index="index" :description="`编码: ${item.uniqueID} 地址: ${item.registeredAddress} ，经营范围: ${ item.businessScope.slice(0,100) + (item.businessScope.length > 100 ? '...' : '' ) } ` " @click="execView(item)" >
-                                    <a slot="title" @click="execView(item)" >{{ `公司：${item.company}，法人：${item.legalRepresentative}，注册资本：${item.munit == 'CNY' ? '￥': (item.munit == 'USD' ? '$': '') }${item.registeredCapital}(万)，公司类型：${item.companyType}，成立日期：${item.establish_time}，所在地：${item.province}` }}</a>
+                                  <a-list-item-meta :index="index" :description="`地址: ${item.registeredAddress} ，公司类型：${item.companyType}，经营范围: ${ item.businessScope.slice(0,100) + (item.businessScope.length > 100 ? '...' : '' ) } ` " @click="execView(item)" >
+                                    <a slot="title" @click="execView(item)" >{{ `公司：${item.company}，法人：${item.legalRepresentative}，注册资本：${item.munit == 'CNY' ? '￥': (item.munit == 'USD' ? '$': '') }${item.registeredCapital}(万)，成立日期：${item.establish_time}，统一社会信用代码：${item.licenseNumber}，所在地：${item.province}` }}</a>
                                   </a-list-item-meta>
 
                                 </a-list-item>
