@@ -48,16 +48,22 @@
                       <a-tabs default-active-key="1" @change="callback">
                         <a-tab-pane key="1" tab="列表">
                           <a-empty v-if="data.length == 0" style="margin-top:10%;height:580px;"/>
-                          <div v-if="data.length > 0" class="reward-content-table" style="margin-left:0px; width:98%;"> 
+                          <div v-if="data.length > 0" class="reward-content-table" style="margin-left:0px; margin-bottom:20px; width:98%;"> 
                               <a-list item-layout="horizontal" :data-source="data">
                                 <a-list-item v-show=" item.status != '已删除' && item.status != '已作废' " slot="renderItem" slot-scope="item, index" style="position:relative;">
 
                                   <a-list-item-meta :index="index" :description="`地址: ${item.registeredAddress} ，公司类型：${item.companyType}，经营范围: ${ item.businessScope.slice(0,100) + (item.businessScope.length > 100 ? '...' : '' ) } ` " @click="execView(item)" >
-                                    <a slot="title" @click="execView(item)" >{{ `公司：${item.company}，法人：${item.legalRepresentative}，注册资本：${item.munit == 'CNY' ? '￥': (item.munit == 'USD' ? '$': '') }${item.registeredCapital}(万)，成立日期：${item.establish_time}，统一社会信用代码：${item.licenseNumber}，所在地：${item.province}` }}</a>
+                                    <a slot="title" @click="execView(item)" >{{ `序号：${index+1}， 公司：${item.company}，法人：${item.legalRepresentative}，注册资本：${item.munit == 'CNY' ? '￥': (item.munit == 'USD' ? '$': '') }${item.registeredCapital}(万)，成立日期：${item.establish_time}，统一社会信用代码：${item.licenseNumber}，所在地：${item.province}` }}</a>
                                   </a-list-item-meta>
 
                                 </a-list-item>
                               </a-list>
+                              <a-divider type="horizontal" />
+                              <a-pagination show-size-changer :default-current="1" :total="500" @showSizeChange="paginationView" @change="paginationView" :pageSizeOptions="['10', '20', '30', '40', '50', '100', '1000', '10000']" > 
+                                <template slot="buildOptionText" slot-scope="props">
+                                  <span >{{ props.value }}条/页</span>
+                                </template>
+                              </a-pagination>
                           </div>
                         </a-tab-pane>
 
@@ -378,6 +384,11 @@ export default {
         debugger;
         return data; 
       },
+
+      // 执行分页查询
+      async paginationView(page = 0, size = 10){
+        this.execSearch('view', page -1 , size);
+      }
 
   },
 };
