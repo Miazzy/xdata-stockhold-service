@@ -247,6 +247,20 @@ const routes = [{
         "subPage": resolve => require(["../components/stock/qualification/qualificationlist.vue"], resolve)
     }
 }, {
+    path: '/stock/annals/annalsapply',
+    name: "上传年报申请",
+    components: {
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/annals/annalsapply.vue"], resolve)
+    }
+}, {
+    path: '/stock/annals/annalslist',
+    name: "年报记录管理",
+    components: {
+        "default": resolve => require(["../components/stock/home.vue"], resolve),
+        "subPage": resolve => require(["../components/stock/annals/annalslist.vue"], resolve)
+    }
+}, {
     path: '/stock/subsidy/subsidyapply',
     name: "录入补贴记录申请",
     components: {

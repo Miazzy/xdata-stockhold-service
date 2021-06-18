@@ -70,15 +70,21 @@
             </div>
 
             <div style="position:absolute; left:1000px; width: 300px;">
-                <a-card title="便捷导航" style="margin-bottom: 10px" :bordered="false" :body-style="{padding: 0}" >
-                  <div class="item-group">
-                    <div class="pane-right-item-group" >
-                      <template v-for=" item in quicktags">
-                        <a-tag class="pane-right-item-group-tag" :key="item.name" :color="item.color" @click="item.click" >{{item.name}}</a-tag>
-                      </template>
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="企业信息查询" :bordered="false" style="margin-top:0px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" >
+                      <a-row>
+                        <a-col :span="item.span" v-for="item in lawsites" :key="item.href" style="padding-bottom:10px;">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px;">
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
                     </div>
-                  </div>
-                </a-card>
+                  </a-card>
+                </div>
+
                 <div v-if="wflows && wflows.length > 0" id="nav-content-process" style="">
                   <a-card :loading="loading" title="股权管理流程" :bordered="false" style="margin-top:10px;">
                     <a-tag color="blue" style="margin-bottom:10px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
@@ -88,20 +94,6 @@
                           <a @click="item.click">
                             <a-avatar class="pane-right-avatar" size="small" :src="item.avatar" />
                             <span class="member">{{ item.name }}</span>
-                          </a>
-                        </a-col>
-                      </a-row>
-                    </div>
-                  </a-card>
-                </div>
-                <div id="nav-content-law" style="">
-                  <a-card :loading="loading" title="企业信息查询" :bordered="false" style="margin-top:10px;">
-                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
-                    <div class="members" >
-                      <a-row>
-                        <a-col :span="item.span" v-for="item in lawsites" :key="item.href" style="padding-bottom:10px;">
-                          <a @click="item.click" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px;">
-                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px;" >{{ item.name }}</span>
                           </a>
                         </a-col>
                       </a-row>
@@ -124,6 +116,23 @@
                     </div>
                   </a-card>
                 </div>
+
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="企业分布榜" :bordered="false" style="margin-top:10px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in zones" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
+
             </div>
             
           </a-col>
@@ -153,6 +162,7 @@ export default {
       wflows: workconfig.getRewardWflow($router),
       lawsites: workconfig.getLawWebsiteflow($router),
       companys: workconfig.getCompanyflow($router),
+      zones: workconfig.getZoneflow($router),
       quicktags: workconfig.getRewardQuickTag($router),
       userinfo: '',
       usertitle:'',

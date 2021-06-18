@@ -387,6 +387,90 @@ export const getRewardWflow = ($router) => {
     return [];
 }
 
+export const getZoneflow = ($router) => {
+    return [{
+        name: "四川 - 合计：266家,注册资本￥1591001(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "新疆 - 合计：25家,注册资本￥56816(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "广东 - 合计：24家,注册资本￥54591(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "河南 - 合计：23家,注册资本￥29400(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "西藏 - 合计：12家,注册资本￥99500(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "河北 - 合计：12家,注册资本￥26550(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "贵州 - 合计：12家,注册资本￥11850(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "北京 - 合计：6家,注册资本￥104206(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "吉林 - 合计：6家,注册资本￥20250(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "江苏 - 合计：6家,注册资本￥17574(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }]
+}
+
 export const getCompanyflow = ($router) => {
     return [{
         name: "领地集团有限公司 - ￥339000(万)",
