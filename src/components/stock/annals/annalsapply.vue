@@ -328,21 +328,6 @@
                   </a-row>
                 </div>
 
-                <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
-                  <a-row>
-                    <a-col :span="4" style="height:auto; font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>备注信息</span>
-                    </a-col>
-                    <a-col :span="20">
-                      <a-textarea
-                        v-model="company.brief"
-                        placeholder="请输入备注信息！"
-                        :auto-size="{ minRows: 10, maxRows: 100 }"
-                        style="height:120px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"
-                      />
-                    </a-col>
-                  </a-row>
-                </div>
 
 
                 <div v-show="role != 'view' && isNull(id) " class="reward-apply-content-item" style="margin-top:35px;margin-bottom:5px; margin-right:10px;">
@@ -530,7 +515,7 @@ export default {
       commonTypeColumns: workconfig.compcolumns.commonTypeColumns,
       sealTypeColumns: workconfig.compcolumns.sealTypeColumns,
       territoryList:[ '家庭纠纷', '借款借贷', '交通事故', '房产纠纷', '刑事辩护', '合同纠纷', '经济纠纷', '土地纠纷', '劳动工伤', '消费权益', '医疗纠纷', '行政诉讼', '公司事务', '知识产权', '保险理赔', '征地拆迁', '涉外海关', '工程建设', '综合咨询', ],
-      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'工商管理',path:'/stock/workspace'},{icon:'form',text:'设立公司申请',path:''}],
+      breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'工商管理',path:'/stock/workspace'},{icon:'form',text:'上传年报申请',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','成渝区域':'成渝区域','两湖区域':'两湖区域','川北区域':'川北区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
     };
