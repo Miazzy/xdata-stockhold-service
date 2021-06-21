@@ -169,6 +169,42 @@
 
                 <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
                   <a-row>
+                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>成立日期</span>
+                    </a-col>
+                    <a-col :span="8">
+                      <a-date-picker v-model="company.handledTime" :default-value="options.datetime" placeholder="请输入公司成立日期！" @blur="validFieldToast('handledTime')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                    </a-col>
+                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>营业期限</span>
+                    </a-col>
+                    <a-col :span="8">
+                      <a-date-picker v-model="company.handledTime" :default-value="options.datetime" placeholder="请输入营业期限！" @blur="validFieldToast('handledTime')" style="width:120px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                      至
+                      <a-date-picker v-model="company.handledTime" :default-value="options.datetime" placeholder="请输入营业期限！" @blur="validFieldToast('handledTime')" style="width:120px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                    </a-col>
+                  </a-row>
+                </div>
+
+                <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
+                  <a-row>
+                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>公司类型</span>
+                    </a-col>
+                    <a-col :span="8">
+                      <a-input v-model="company.mobile" placeholder="请选择公司类型！" @blur="validFieldToast('start_time')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                    </a-col>
+                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;"></span>设立原因</span>
+                    </a-col>
+                    <a-col :span="8">
+                      <a-input v-model="company.mobile" placeholder="请输入公司设立原因！" @blur="validFieldToast('mobile')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                    </a-col>
+                  </a-row>
+                </div>
+
+                <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
+                  <a-row>
                     <a-col :span="4" style="height:auto; font-size:1.0rem; margin-top:5px; text-align: center;">
                       <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>经营范围</span>
                     </a-col>
