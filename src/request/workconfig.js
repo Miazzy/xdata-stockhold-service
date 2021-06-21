@@ -218,7 +218,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '录入补贴记录',
             click: () => {
-                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
+                $router.push(`/stock/subsidy/subsidyapply?type=1&tname=录入质押`, '_blank');
             }
         }, {
             name: "录入知识产权",
@@ -226,7 +226,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '录入知识产权',
             click: () => {
-                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
+                $router.push(`/stock/property/propertyapply?type=1&tname=录入质押`, '_blank');
             }
         }, {
             name: "录入处罚记录",
