@@ -53,29 +53,6 @@
                    </a-row>
                 </div>
 
-                <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
-                  <a-row>
-                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>律师姓名</span>
-                    </a-col>
-                    <a-col :span="8">
-                      <a-input v-model="company.lawyer_name" :readonly="false" placeholder="请输入律师姓名！" @blur="validFieldToast('lawyer_name')" style="border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"  />
-                    </a-col>
-                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>擅长领域</span>
-                    </a-col>
-                    <a-col :span="8">
-                      <a-select mode="multiple" v-model="company.territory"  @blur="validFieldToast('territory')"  placeholder="请填写律师擅长领域！" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;">
-                        <template v-for="(elem,index) in territoryList ">
-                          <a-select-option :key="elem" :index="index" :value="elem">
-                            {{elem}}
-                          </a-select-option>
-                        </template>
-                      </a-select>
-                    </a-col>
-                  </a-row>
-                </div>
-
                 <div v-if="isNull(id)" class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
                   <a-row>
                     <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
@@ -92,6 +69,31 @@
                     </a-col>
                   </a-row>
                 </div>
+
+                <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
+                  <a-row>
+                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>公司名称</span>
+                    </a-col>
+                    <a-col :span="8">
+                      <a-input v-model="company.lawyer_name" :readonly="false" placeholder="请输入公司名称！" @blur="validFieldToast('lawyer_name')" style="border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"  />
+                    </a-col>
+                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>所属行业</span>
+                    </a-col>
+                    <a-col :span="8">
+                      <a-select mode="multiple" v-model="company.territory"  @blur="validFieldToast('territory')"  placeholder="请选择所属行业！" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;">
+                        <template v-for="(elem,index) in territoryList ">
+                          <a-select-option :key="elem" :index="index" :value="elem">
+                            {{elem}}
+                          </a-select-option>
+                        </template>
+                      </a-select>
+                    </a-col>
+                  </a-row>
+                </div>
+
+                
 
                 <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
                   <a-row>
@@ -408,7 +410,7 @@ export default {
       acceptType: workconfig.compcolumns.acceptType,
       commonTypeColumns: workconfig.compcolumns.commonTypeColumns,
       sealTypeColumns: workconfig.compcolumns.sealTypeColumns,
-      territoryList:[ '家庭纠纷', '借款借贷', '交通事故', '房产纠纷', '刑事辩护', '合同纠纷', '经济纠纷', '土地纠纷', '劳动工伤', '消费权益', '医疗纠纷', '行政诉讼', '公司事务', '知识产权', '保险理赔', '征地拆迁', '涉外海关', '工程建设', '综合咨询', ],
+      territoryList:[ '房地产行业', '物业行业', '商管行业', '金融行业', '商贸行业', '建筑行业', '高新技术行业', '监理行业', '医疗行业', '商务咨询行业', '环保行业', '教育行业'],
       breadcrumb:[{icon:'home',text:'首页',path:'/stock/workspace'},{icon:'user',text:'工商管理',path:'/stock/workspace'},{icon:'form',text:'设立公司申请',path:''}],
       statusType:{'valid':'有效','invalid':'删除'},
       zoneType:{'领地集团总部':'领地集团总部','成渝区域':'成渝区域','两湖区域':'两湖区域','川北区域':'川北区域','乐眉区域':'乐眉区域','中原区域':'中原区域','攀西区域':'攀西区域','新疆区域':'新疆区域','大湾区域':'大湾区域','北京区域':'北京区域'},
