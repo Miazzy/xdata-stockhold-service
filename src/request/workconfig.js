@@ -168,12 +168,12 @@ export const reward = ($router) => {
                 $router.push(`/stock/qualification/qualificationapply?type=1&tname=录入资质&apply=new`, '_blank');
             }
         }, {
-            name: "上传年报申请",
+            name: "录入年报申请",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/xiangmuyunpan_jy.png`,
             href: "/account/donelist",
-            description: '上传年报申请',
+            description: '录入年报申请',
             click: () => {
-                $router.push(`/stock/annals/annalsapply?type=1&tname=上传年报&apply=new`, '_blank');
+                $router.push(`/stock/annals/annalsapply?type=1&tname=录入年报&apply=new`, '_blank');
             }
         }, {
             name: "公司工商查询",

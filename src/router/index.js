@@ -255,7 +255,7 @@ const routes = [{
     }
 }, {
     path: '/stock/annals/annalsapply',
-    name: "上传年报申请",
+    name: "录入年报申请",
     components: {
         "default": resolve => require(["../components/stock/home.vue"], resolve),
         "subPage": resolve => require(["../components/stock/annals/annalsapply.vue"], resolve)
