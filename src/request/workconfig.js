@@ -471,6 +471,90 @@ export const getIndustryflow = ($router) => {
     }];
 }
 
+export const getLegalflow = ($router) => {
+    return [{
+        name: "吴雪芳 - 合计：29家,注册资本￥200(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "刘玉国 - 合计：28家,注册资本￥65927(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "张建 - 合计：24家,注册资本￥73932(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "罗高丽 - 合计：18家,注册资本￥78633(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "詹巍 - 合计：18家,注册资本￥52603(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "赵艳 - 合计：18家,注册资本￥35427(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "刘姣 - 合计：16家,注册资本￥1691(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "李蕊志 - 合计：14家,注册资本￥94747(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "杨光焰 - 合计：12家,注册资本￥4760(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }, {
+        name: "侯三利 - 合计：10家,注册资本￥74200(万)",
+        span: 24,
+        href: "",
+        display: 'view',
+        click: () => {
+            window.open("", '_blank');
+        }
+    }];
+}
+
 export const getCityflow = ($router) => {
     return [{
         name: "成都 - 合计：124家,注册资本￥1185628(万)",
