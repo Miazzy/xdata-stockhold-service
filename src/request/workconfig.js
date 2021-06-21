@@ -234,7 +234,7 @@ export const reward = ($router) => {
             href: "/account/donelist",
             description: '录入处罚记录',
             click: () => {
-                $router.push(`/stock/pledge/pledgeapply?type=1&tname=录入质押`, '_blank');
+                $router.push(`/stock/punishment/punishmentapply?type=1&tname=录入质押`, '_blank');
             }
         }, {
             name: "录入账户记录",
