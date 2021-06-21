@@ -73,16 +73,16 @@
                 <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
                   <a-row>
                     <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>所属律所</span>
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>资质类型</span>
                     </a-col>
                     <a-col :span="8">
-                      <a-auto-complete :data-source="firmNamelist" v-model="company.firmID" style="border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0; width:100%; border-width: 0px 0px 1px; border-style: solid; border-color: rgb(254, 254, 254) rgb(254, 254, 254) rgb(240, 240, 240); border-image: initial;"  placeholder="请输入律所名称！" :filter-option="filterOption" />
+                      <a-auto-complete :data-source="firmNamelist" v-model="company.firmID" placeholder="请输入资质类型！" style="border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0; width:100%; border-width: 0px 0px 1px; border-style: solid; border-color: rgb(254, 254, 254) rgb(254, 254, 254) rgb(240, 240, 240); border-image: initial;" :filter-option="filterOption" />
                     </a-col>
                     <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>执业年限</span>
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>资质等级</span>
                     </a-col>
                     <a-col :span="8">
-                      <a-input v-model="company.years" :readonly="false" placeholder="请填写此律师的执业年限！" @blur="validFieldToast('years')" style="border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"  />
+                      <a-input v-model="company.years" :readonly="false" placeholder="请输入资质等级！" @blur="validFieldToast('years')" style="border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"  />
                     </a-col>
                   </a-row>
                 </div>
@@ -90,29 +90,18 @@
                 <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
                   <a-row>
                     <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>大学名称</span>
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>资质编号</span>
                     </a-col>
                     <a-col :span="8">
-                      <a-input v-model="company.college" :default-value="options.college" placeholder="请输入此律师大学名称！" @blur="validFieldToast('college')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                      <a-input v-model="company.college" :default-value="options.college" placeholder="请输入资质编号！" @blur="validFieldToast('college')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
                     </a-col>
                     <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>学位学历</span>
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>资质证有效期</span>
                     </a-col>
                     <a-col :span="8">
-                      <a-radio-group  v-model="company.degree" placeholder="请输入此律师学位学历！" @blur="validFieldToast('degree')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 0px solid #f0f0f0;">
-                        <a-radio-button value="专科">
-                          专科
-                        </a-radio-button>
-                        <a-radio-button value="本科">
-                          本科
-                        </a-radio-button>
-                        <a-radio-button value="硕士">
-                          硕士
-                        </a-radio-button>
-                        <a-radio-button value="博士">
-                          博士
-                        </a-radio-button>
-                      </a-radio-group>
+                      <a-date-picker v-model="company.start_time" :default-value="options.start_time" placeholder="请输入资质证有效期！" @blur="validFieldToast('start_time')" style="width:120px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                      至
+                      <a-date-picker v-model="company.start_time" :default-value="options.start_time" placeholder="请输入资质证有效期！" @blur="validFieldToast('start_time')" style="width:120px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
                     </a-col>
                   </a-row>
                 </div>
@@ -120,16 +109,10 @@
                 <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
                   <a-row>
                     <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>开始执业时间</span>
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>资质状态</span>
                     </a-col>
                     <a-col :span="8">
-                      <a-date-picker v-model="company.start_time" :default-value="options.start_time" placeholder="请输入此律师开始执业时间！" @blur="validFieldToast('start_time')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
-                    </a-col>
-                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>联系电话</span>
-                    </a-col>
-                    <a-col :span="8">
-                      <a-input v-model="company.mobile" placeholder="请输入此律师联系电话！" @blur="validFieldToast('mobile')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
+                      <a-input v-model="company.mobile" placeholder="请输入资质状态！" @blur="validFieldToast('mobile')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
                     </a-col>
                   </a-row>
                 </div>
@@ -137,65 +120,14 @@
                 <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
                   <a-row>
                     <a-col :span="4" style="height:auto; font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>律师简介</span>
+                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>备注信息</span>
                     </a-col>
                     <a-col :span="20">
                       <a-textarea
                         v-model="company.brief"
-                        placeholder="请输入此律师简介(工作、经验、能力、学历等)！"
-                        :auto-size="{ minRows: 10, maxRows: 100 }"
-                        style="height:120px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"
-                      />
-                    </a-col>
-                  </a-row>
-                </div>
-
-                <div class="reward-apply-content-item reward-apply-content-title" style="padding-top:5px;">
-                   <a-row style="border-top: 1px dash #f0f0f0;" >
-                    <a-col class="reward-apply-content-title-text" :span="4" style="font-size:1.1rem;">
-                      出库情况
-                    </a-col>
-                   </a-row>
-                </div>
-
-                <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
-                  <a-row>
-                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>是否出库</span>
-                    </a-col>
-                    <a-col :span="8">
-                      <a-radio-group  v-model="company.out_flag" placeholder="请选择此律所是否出库！" @blur="validFieldToast('out_flag')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 0px solid #f0f0f0;">
-                        <a-radio-button value="已入库">
-                          已入库
-                        </a-radio-button>
-                        <a-radio-button value="未出库">
-                          未出库
-                        </a-radio-button>
-                        <a-radio-button value="已出库">
-                          已出库
-                        </a-radio-button>
-                      </a-radio-group>
-                    </a-col>
-                    <a-col :span="4" style="font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>出库时间</span>
-                    </a-col>
-                    <a-col :span="8">
-                      <a-date-picker v-model="company.out_time" :default-value="options.out_time" placeholder="请输入此律师出库时间！" @blur="validFieldToast('out_time')" style="width:100%; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;" />
-                    </a-col>
-                  </a-row>
-                </div>
-
-                <div class="reward-apply-content-item" style="margin-top:5px;margin-bottom:5px; margin-right:10px;">
-                  <a-row>
-                    <a-col :span="4" style="height:auto; font-size:1.0rem; margin-top:5px; text-align: center;">
-                      <span style="position:relative;" ><span style="color:red;margin-right:0px;position:absolute;left:-10px;top:0px;">*</span>出库原因</span>
-                    </a-col>
-                    <a-col :span="20">
-                      <a-textarea
-                        v-model="company.out_reason"
-                        placeholder="请输入此律师出库原因！"
-                        :auto-size="{ minRows: 10, maxRows: 100 }"
-                        style="height:120px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"
+                        placeholder="请输入备注信息！"
+                        :auto-size="{ minRows: 4, maxRows: 100 }"
+                        style="height:60px; border: 0px solid #fefefe;  border-bottom: 1px solid #f0f0f0;"
                       />
                     </a-col>
                   </a-row>
