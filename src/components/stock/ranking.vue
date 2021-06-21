@@ -144,7 +144,7 @@
 
             <div style="position:absolute; left:1110px; width: 300px;">
                 
-                <div id="nav-content-law" style="">
+                <div id="nav-content-law" style="display:none;">
                   <a-card :loading="loading" title="执行董事榜" :bordered="false" style="margin-top:5px;">
                     <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
@@ -160,7 +160,7 @@
                   </a-card>
                 </div>
 
-                <div id="nav-content-law" style="">
+                <div id="nav-content-law" style="display:none;">
                   <a-card :loading="loading" title="经理排行榜" :bordered="false" style="margin-top:10px;">
                     <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
