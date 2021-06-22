@@ -346,6 +346,75 @@ export const reward = ($router) => {
                 $router.push(`/stock/court/judgelist?type=1&tname=法官管理&apply=管理`, '_blank');
             }
         }],
+    }, {
+        id: 'property-pane',
+        title: '知识产权管理',
+        display: true,
+        taskflows: [{
+            name: "录入商标信息申请",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/tubiao-22.png`,
+            href: "/account/todolist",
+            description: '录入商标信息申请',
+            click: () => {
+                $router.push(`/stock/court/courtapply?type=1&tname=商标信息&apply=new`, '_blank');
+            }
+        }, {
+            name: "软件著作权申请",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/zhaopian_sn01.png`,
+            href: "/account/todolist",
+            description: '软件著作权申请',
+            click: () => {
+                $router.push(`/stock/license/licenseapply?type=1&tname=软件著作权&apply=new`, '_blank');
+            }
+        }, {
+            name: "作品著作权申请",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/toupiao.png`,
+            href: "/account/todolist",
+            description: '作品著作权申请',
+            click: () => {
+                $router.push(`/stock/license/licenseapply?type=2&tname=作品著作权&apply=new`, '_blank');
+            }
+        }, {
+            name: "录入网站备案申请",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/yuyuechadang.png`,
+            href: "/account/todolist",
+            description: '录入网站备案申请',
+            click: () => {
+                $router.push(`/stock/license/licenseapply?type=3&tname=网站备案&apply=new`, '_blank');
+            }
+        }, {
+            name: "商标信息管理",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/shujucaiji.png`,
+            href: "/account/donelist",
+            description: '商标信息管理',
+            click: () => {
+                $router.push(`/stock/court/judgeapply?type=1&tname=商标信息&apply=new`, '_blank');
+            }
+        }, {
+            name: "软件著作权管理",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_phone_contact_.png`,
+            href: "/account/donelist",
+            description: '软件著作权管理',
+            click: () => {
+                $router.push(`/stock/court/judgeapply?type=1&tname=软件著作权&apply=new`, '_blank');
+            }
+        }, {
+            name: "作品著作权管理",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/qiyehaozujian_jy.png`,
+            href: "/account/todolist",
+            description: '作品著作权管理',
+            click: () => {
+                $router.push(`/stock/court/courtlist?type=1&tname=作品著作权&apply=管理`, '_blank');
+            }
+        }, {
+            name: "网站备案管理",
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/dushu_sn01.png`,
+            href: "/account/todolist",
+            description: '网站备案管理',
+            click: () => {
+                $router.push(`/stock/court/judgelist?type=1&tname=网站备案&apply=管理`, '_blank');
+            }
+        }],
     }]
 };
 
