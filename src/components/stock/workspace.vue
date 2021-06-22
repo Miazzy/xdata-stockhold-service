@@ -1,5 +1,5 @@
 <template>
-  <div id="reward-home" style="background-color:#f0f0f0;width:100%;height:1000px;">
+  <div id="reward-home" style="background-color:#f0f0f0;width:100%;height:1350px;">
       <div style="background-color:#f0f0f0;width:100%;height:auto;">
       <a-menu mode="horizontal">
         <a-sub-menu>
@@ -119,11 +119,27 @@
                 </div>
 
                 <div id="nav-content-law" style="">
-                  <a-card :loading="loading" title="企业分布榜" :bordered="false" style="margin-top:10px;">
+                  <a-card :loading="loading" title="地区分布榜" :bordered="false" style="margin-top:10px;">
                     <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
                       <a-row>
                         <a-col :span="item.span" v-for="(item,index) in zones" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
+                          <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
+                            <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
+                            <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
+                          </a>
+                        </a-col>
+                      </a-row>
+                    </div>
+                  </a-card>
+                </div>
+
+                <div id="nav-content-law" style="">
+                  <a-card :loading="loading" title="行业分布榜" :bordered="false" style="margin-top:5px;">
+                    <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
+                    <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
+                      <a-row>
+                        <a-col :span="item.span" v-for="(item,index) in industrys" :key="item.href" style="padding-bottom:5px;transform:scale(1.0);">
                           <a @click="item.click" style="margin-top:0px;margin-bottom:2.5px;padding-bottom:2.5px; transform:scale(1.0);">
                             <span style="margin-right:2.5px; font-size:0.7rem; "> {{ index + 1 }}. </span>
                             <span class="member" style="margin-top:0px;margin-bottom:5px;padding-bottom:5px; transform:scale(1.0); font-size:0.65rem;" >{{ item.name }}</span>
@@ -164,11 +180,14 @@ export default {
       lawsites: workconfig.getLawWebsiteflow($router),
       companys: workconfig.getCompanyflow($router),
       zones: workconfig.getZoneflow($router),
+      citys: workconfig.getCityflow($router),
+      legals: workconfig.getLegalflow($router),
+      industrys: workconfig.getIndustryflow($router),
       quicktags: workconfig.getRewardQuickTag($router),
       userinfo: '',
       usertitle:'',
       lawyerlist:[],
-      breadcrumb:[{icon:'',text:'所有功能',path:'/stock/workspace'},{icon:'',text:'任务面板',path:'/stock/workspace'},{icon:'',text:'工商管理',path:'/stock/workspace'},{icon:'',text:'记录管理',path:'/stock/workspace'},{icon:'',text:'证照管理',path:'/stock/workspace'}],
+      breadcrumb:[{icon:'',text:'所有功能',path:'/stock/workspace'},{icon:'',text:'任务面板',path:'/stock/workspace'},{icon:'',text:'工商管理',path:'/stock/workspace'},{icon:'',text:'记录管理',path:'/stock/workspace'},{icon:'',text:'证照管理',path:'/stock/workspace'},{icon:'',text:'知识产权管理',path:'/stock/workspace'}],
     };
   },
   activated() {

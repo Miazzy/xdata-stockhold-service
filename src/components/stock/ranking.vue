@@ -53,7 +53,7 @@
                 </div>
 
                 <div id="nav-content-law" style="">
-                  <a-card :loading="loading" title="企业分布榜" :bordered="false" style="margin-top:10px;">
+                  <a-card :loading="loading" title="地区分布榜" :bordered="false" style="margin-top:10px;">
                     <a-tag color="blue" style="margin-bottom:0px;position:absolute;top:18px;right:20px;display:none;" ></a-tag>
                     <div class="members" style="padding-bottom:0px;transform:scale(1.0);">
                       <a-row>

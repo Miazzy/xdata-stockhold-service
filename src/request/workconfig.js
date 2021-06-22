@@ -221,10 +221,10 @@ export const reward = ($router) => {
                 $router.push(`/stock/subsidy/subsidyapply?type=1&tname=录入质押`, '_blank');
             }
         }, {
-            name: "录入知识产权",
+            name: "录入变更记录",
             avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_app_report_.png`,
             href: "/account/donelist",
-            description: '录入知识产权',
+            description: '录入变更记录',
             click: () => {
                 $router.push(`/stock/property/propertyapply?type=1&tname=录入质押`, '_blank');
             }
@@ -253,12 +253,12 @@ export const reward = ($router) => {
                 $router.push(`/stock/subsidy/subsidylist?type=1&tname=律所录入&apply=new`, '_blank');
             }
         }, {
-            name: "知识产权管理",
+            name: "变更记录管理",
             avatar: `//cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_app_project_.png`,
             href: "/account/todolist",
-            description: '公司知识产权管理',
+            description: '变更记录管理',
             click: () => {
-                $router.push(`/stock/property/propertylist?type=1&tname=律师管理&apply=管理`, '_blank');
+                $router.push(`/stock/property/propertylist?type=1&tname=变更记录&apply=管理`, '_blank');
             }
         }, {
             name: "处罚记录管理",
