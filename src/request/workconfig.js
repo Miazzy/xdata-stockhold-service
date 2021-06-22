@@ -352,7 +352,7 @@ export const reward = ($router) => {
         display: true,
         taskflows: [{
             name: "录入商标信息申请",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/tubiao-22.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/zhenggai_jy.png`,
             href: "/account/todolist",
             description: '录入商标信息申请',
             click: () => {
@@ -360,7 +360,7 @@ export const reward = ($router) => {
             }
         }, {
             name: "软件著作权申请",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/zhaopian_sn01.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/moxingguanli_jy.png`,
             href: "/account/todolist",
             description: '软件著作权申请',
             click: () => {
@@ -368,7 +368,7 @@ export const reward = ($router) => {
             }
         }, {
             name: "作品著作权申请",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/toupiao.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/yanglaodaiyuzigerenzheng.png`,
             href: "/account/todolist",
             description: '作品著作权申请',
             click: () => {
@@ -376,7 +376,7 @@ export const reward = ($router) => {
             }
         }, {
             name: "录入网站备案申请",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/yuyuechadang.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/renwuzhipai_jy.png`,
             href: "/account/todolist",
             description: '录入网站备案申请',
             click: () => {
@@ -384,7 +384,7 @@ export const reward = ($router) => {
             }
         }, {
             name: "商标信息管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/shujucaiji.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_app_calendar_.png`,
             href: "/account/donelist",
             description: '商标信息管理',
             click: () => {
@@ -392,7 +392,7 @@ export const reward = ($router) => {
             }
         }, {
             name: "软件著作权管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_phone_contact_.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/building-type-170000-18.png`,
             href: "/account/donelist",
             description: '软件著作权管理',
             click: () => {
@@ -400,7 +400,7 @@ export const reward = ($router) => {
             }
         }, {
             name: "作品著作权管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/qiyehaozujian_jy.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/qiandao_jy.png`,
             href: "/account/todolist",
             description: '作品著作权管理',
             click: () => {
@@ -408,7 +408,7 @@ export const reward = ($router) => {
             }
         }, {
             name: "网站备案管理",
-            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/dushu_sn01.png`,
+            avatar: `https://cdn.jsdelivr.net/gh/Miazzy/xdata-stock-service@v1.0.5/src/assets/img/icon_schedule_study_.png`,
             href: "/account/todolist",
             description: '网站备案管理',
             click: () => {
